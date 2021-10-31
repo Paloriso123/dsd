@@ -11,10 +11,13 @@ function connectToDBS($servername, $username, $password, $dbname) {
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password, [
         PDO::ATTR_TIMEOUT => 1, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        echo "### Connection succeded on !!!!!!" .$username. "!!!!!! &&& ";
 
         return $conn;
     } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
+        echo "### Connection failed: " . $e->getMessage() . " on !!!!!!" .$username. "!!!!!! &&& ";
         return 0;
     }
 }
+
+?>
