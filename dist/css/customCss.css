@@ -1,0 +1,25 @@
+.form-group{
+    margin-bottom: 1rem;
+}
+.form-group:first-child{
+    margin-top: 1rem;
+}
+#submitButton{
+    margin-bottom: 2rem;
+}
+#signForm{
+    border: 1px black solid;
+    border-radius: 1rem;
+    background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5));
+}
+#fullScreenSignDiv{
+    min-height: calc(100vh - 56px - 120px);
+    border: 1px dashed red;
+    padding-top: 1rem;
+}
+#backgroundSignDiv{
+    background: url("../../images/signFormBackground.jpg") center/cover fixed no-repeat;
+}
+.naseDivko{
+    height: 100vh;
+}
