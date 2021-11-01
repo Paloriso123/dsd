@@ -33,32 +33,31 @@ include('../connection.php');
         <!-- Page header with logo and tagline-->
         <form>
             <div class="form-group">
-                <label for="exampleInputEmail1">First name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <label for="firstName">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Enter First name">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Enter Last name">
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" class="form-control" id="age" placeholder="Enter age">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Last name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                <!-- spravime REGEX ? -->
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Age</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password again</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="passwordAgain">Password again</label>
+                <input type="password" class="form-control" id="passwordAgain" placeholder="Repeat your passowrd">
+                <!-- spravime REGEX ? -->
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
