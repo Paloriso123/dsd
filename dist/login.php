@@ -39,14 +39,14 @@ if(isset($_POST['loginButton'])){
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/">Home</a></li>
                         <li class="nav-item"><a class="nav-link " href="#">Blog</a></li>
                         <?php if($user->isLoggedIn()) { ?>
                         <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/changePass.php"><?php echo $_SESSION['firstName']. " ". $_SESSION['lastName'];?></a></li>
                         <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/logout.php">Logout</a></li>
                         <?php } else { ?>
                         <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/sign.php">Sign</a></li>
-                        <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/login.php">Login</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/login.php">Login</a></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -56,6 +56,9 @@ if(isset($_POST['loginButton'])){
         <div id="backgroundSignDiv">
             <div id="fullScreenSignDiv" class="container">
                 <!-- align-items-center z nejakeho dovodu nefunguje -->
+                <div class="heading">
+                    <h1 class="nadpis1">Login</h1>
+                </div>
                 <div class="row align-items-center">
 
                     <div class="col-md-2"></div>
@@ -70,7 +73,11 @@ if(isset($_POST['loginButton'])){
                             <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password">
                             <!-- spravime REGEX ? -->
                         </div>
-                        <button type="submit" class="btn btn-primary" id="submitButton" name="loginButton">Login</button>
+                        <div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary" id="submitButton" name="loginButton">Login</button>
+                            </div>
+                        </div>
                     </form>
                     <div class="col-md-2"></div>
                 </div>

@@ -1,5 +1,6 @@
 .form-group{
     margin-bottom: 1rem;
+    padding: 0 1rem;
 }
 .form-group:first-child{
     margin-top: 1rem;
@@ -8,18 +9,28 @@
     margin-bottom: 2rem;
 }
 #signForm{
-    border: 1px black solid;
     border-radius: 1rem;
-    background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5));
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8));
+    box-shadow: 0 0 5px black;
 }
 #fullScreenSignDiv{
     min-height: calc(100vh - 56px - 120px);
-    border: 1px dashed red;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
 }
 #backgroundSignDiv{
     background: url("../../images/signFormBackground.jpg") center/cover fixed no-repeat;
 }
 .naseDivko{
     height: 100vh;
+}
+.nadpis1{
+    text-align: center;
+    color: white;
+    text-shadow: 0px 0px 5px black;
+    margin-bottom: 1rem;
+}
+#submitButton{
+    width: 50%;
+    padding: 0.5rem;
+    margin-top: 0.75rem;
 }
