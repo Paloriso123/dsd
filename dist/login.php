@@ -5,16 +5,13 @@ if($user->isLoggedIn()) {
     header("location:index.php");
 }
 
-if(isset($_POST['submitButton'])){
+if(isset($_POST['loginButton'])){
 
     $userInfo = [
-        'firstName' => $_POST['firstName'],
-        'lastName' => $_POST['lastName'],
-        'age' => $_POST['age'],
         'email' => $_POST['email'],
         'password' => $_POST['password']
     ];
-    $user->addUser($connection, $userInfo);
+    $user->authenticate($connection, $userInfo);
 }
 
 
@@ -62,19 +59,7 @@ if(isset($_POST['submitButton'])){
                 <div class="row align-items-center">
 
                     <div class="col-md-2"></div>
-                    <form id="signForm" class="col-md-8" action="<?php echo htmlspecialchars('sign.php', ENT_QUOTES); ?>" method="post">
-                        <div class="form-group">
-                            <label for="firstName">First name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="Enter First name" name="firstName">
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Enter Last name" name="lastName">
-                        </div>
-                        <div class="form-group">
-                            <label for="age">Age</label>
-                            <input type="number" class="form-control" id="age" placeholder="Enter age" name="age">
-                        </div>
+                    <form id="signForm" class="col-md-8" action="<?php echo htmlspecialchars('login.php', ENT_QUOTES); ?>" method="post">
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
@@ -85,12 +70,7 @@ if(isset($_POST['submitButton'])){
                             <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password">
                             <!-- spravime REGEX ? -->
                         </div>
-                        <div class="form-group">
-                            <label for="passwordAgain">Password again</label>
-                            <input type="password" class="form-control" id="passwordAgain" placeholder="Repeat your passowrd" name="passwordAgain">
-                            <!-- spravime REGEX ? -->
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="submitButton" name="submitButton">Submit</button>
+                        <button type="submit" class="btn btn-primary" id="submitButton" name="loginButton">Login</button>
                     </form>
                     <div class="col-md-2"></div>
                 </div>

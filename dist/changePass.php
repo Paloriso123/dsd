@@ -1,20 +1,15 @@
 <?php 
 include('../connection.php');
 
-if($user->isLoggedIn()) {
-    header("location:index.php");
-}
 
-if(isset($_POST['submitButton'])){
+
+if(isset($_POST['changeButton'])){
 
     $userInfo = [
-        'firstName' => $_POST['firstName'],
-        'lastName' => $_POST['lastName'],
-        'age' => $_POST['age'],
-        'email' => $_POST['email'],
+        'email' => $_SESSION['email'],
         'password' => $_POST['password']
     ];
-    $user->addUser($connection, $userInfo);
+    $user->changePassword($connection, $userInfo);
 }
 
 
@@ -62,24 +57,7 @@ if(isset($_POST['submitButton'])){
                 <div class="row align-items-center">
 
                     <div class="col-md-2"></div>
-                    <form id="signForm" class="col-md-8" action="<?php echo htmlspecialchars('sign.php', ENT_QUOTES); ?>" method="post">
-                        <div class="form-group">
-                            <label for="firstName">First name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="Enter First name" name="firstName">
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Enter Last name" name="lastName">
-                        </div>
-                        <div class="form-group">
-                            <label for="age">Age</label>
-                            <input type="number" class="form-control" id="age" placeholder="Enter age" name="age">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
+                    <form id="signForm" class="col-md-8" action="<?php echo htmlspecialchars('changePass.php', ENT_QUOTES); ?>" method="post">
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password">
@@ -90,7 +68,7 @@ if(isset($_POST['submitButton'])){
                             <input type="password" class="form-control" id="passwordAgain" placeholder="Repeat your passowrd" name="passwordAgain">
                             <!-- spravime REGEX ? -->
                         </div>
-                        <button type="submit" class="btn btn-primary" id="submitButton" name="submitButton">Submit</button>
+                        <button type="submit" class="btn btn-primary" id="submitButton" name="changeButton">Change</button>
                     </form>
                     <div class="col-md-2"></div>
                 </div>
