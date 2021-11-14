@@ -58,7 +58,7 @@ class User {
             $sql->execute([$firstName, $lastName, $age, $email, $hashPasword]);
             
             $sql1 = $conn['conn1'] -> prepare("INSERT INTO users (firstName, lastName, age, email, password) "
-                                           . "VALUES (?, ?, ?, ?, ?)");
+                                            . "VALUES (?, ?, ?, ?, ?)");
             $sql1->execute([$firstName, $lastName, $age, $email, $hashPasword]);
             
             $sql2 = $conn['conn2'] -> prepare("INSERT INTO users (firstName, lastName, age, email, password) "
