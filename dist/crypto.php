@@ -26,14 +26,14 @@ include('../connection.php');
                 <!-- navbar -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> 
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#crypto">Crypto</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#stocks">Stocks</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#indices">Indices</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#realEstates">Real Estates</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#metals">Metals</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#bonds">Bonds</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#investPlanner">Invest Planner</a></li>
+                        <li class="nav-item"><a class="nav-link " href="http://localhost/semestralny_projekt_dsd_paloriso/dist/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="crypto.php">Crypto</a></li>
+                        <li class="nav-item"><a class="nav-link " href="stocks.php">Stocks</a></li>
+                        <li class="nav-item"><a class="nav-link " href="indices.php">Indices</a></li>
+                        <li class="nav-item"><a class="nav-link " href="realEstates.php">Real Estates</a></li>
+                        <li class="nav-item"><a class="nav-link " href="metals.php">Metals</a></li>
+                        <li class="nav-item"><a class="nav-link " href="bonds.php">Bonds</a></li>
+                        <li class="nav-item"><a class="nav-link " href="investPlanner.php">Invest Planner</a></li>
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <?php if($user->isLoggedIn()) { ?>
@@ -52,7 +52,7 @@ include('../connection.php');
         <!-- Page header with logo and tagline-->
         <header class="py-2">
             <div class="container">
-                <div class="text-center" class="bg-image bg-opacity-10" style="background-image: url('../images/welcomePicture.jpg'); height: 400px;">
+                <div class="text-center" class="bg-image bg-opacity-10" style="background-image: url('../images/crypto.jpg'); height: 400px;">
                 </div>
             </div>
         </header>
@@ -69,7 +69,7 @@ include('../connection.php');
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">CRYPTO</h2>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="crypto.php">Read more →</a>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
                     </div>
                     <!-- VELKY JEDEN PRISPEVOK -->
@@ -79,7 +79,7 @@ include('../connection.php');
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">STOCKS</h2>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="stocks.php">Read more →</a>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
                     </div>
                     <!-- VELKY JEDEN PRISPEVOK -->
@@ -89,7 +89,7 @@ include('../connection.php');
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">INDICES</h2>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="indices.php">Read more →</a>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
                     </div>
                     <!-- VELKY JEDEN PRISPEVOK -->
@@ -99,7 +99,7 @@ include('../connection.php');
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">REAL ESTATES</h2>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="realEstates.php">Read more →</a>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
                     </div>
                     <!-- VELKY JEDEN PRISPEVOK -->
@@ -109,7 +109,7 @@ include('../connection.php');
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">METALS</h2>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="metals.php">Read more →</a>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
                     </div>
                     <!-- VELKY JEDEN PRISPEVOK -->
@@ -119,7 +119,7 @@ include('../connection.php');
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">BONDS</h2>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="bonds.php">Read more →</a>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
                     </div>
                     <!-- VELKY JEDEN PRISPEVOK -->
@@ -129,7 +129,7 @@ include('../connection.php');
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">INVEST PLANNER</h2>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="investPlanner.php">Read more →</a>
+                            <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
                     </div>
                    
@@ -180,7 +180,7 @@ include('../connection.php');
                         </div>
                     </div>
                     - Pagination-->
-                    <!-- <nav aria-label="Pagination">
+                    <nav aria-label="Pagination">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
                             <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
@@ -191,8 +191,7 @@ include('../connection.php');
                             <li class="page-item"><a class="page-link" href="#!">15</a></li>
                             <li class="page-item"><a class="page-link" href="#!">Older</a></li>
                         </ul>
-                    </nav> -->
-                    <button>Back to top</button>
+                    </nav>
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">

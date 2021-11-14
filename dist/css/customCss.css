@@ -34,3 +34,14 @@
     padding: 0.5rem;
     margin-top: 0.75rem;
 }
+.welcomeHeader{
+    color: red;
+    background: black;
+}
+.divContainer{
+    cursor: pointer;
+}
+p{
+    color: red;
+    background: goldenrod;
+}
