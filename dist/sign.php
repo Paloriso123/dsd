@@ -29,7 +29,7 @@ if(isset($_POST['submitButton'])){
         <meta name="author" content="" />
         <title>Melko Misek DSD</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../images/bitcoin.png" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <!-- custom CSS not built in -->

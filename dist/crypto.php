@@ -10,13 +10,14 @@ include('../connection.php');
         <meta name="author" content="" />
         <title>Melko Misek DSD</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../images/bitcoin.png" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <!-- custom CSS not built in -->
         <link href="css/customCss.css" rel="stylesheet" />
+        <script src="js/clock.js"></script>
     </head>
-    <body>
+    <body onload="realtimeClock()">
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div class="container">
@@ -209,31 +210,24 @@ include('../connection.php');
                         </div>
                     </div>
                     <!-- Categories widget-->
+                    <?php if($user->isLoggedIn()) { ?>
                     <div class="card mb-4">
-                        <div class="card-header">Categories</div>
-                        <div class="card-body">
+                        <div class="card-header">New post</div>
+                        <div class="card-body text-center">
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
-                                    </ul>
+                                <div class="col-sm-12">
+                                <a href="createPost.php"><button class="btn btn-primary" id="button-search" type="button">Create new post</button></a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                     <!-- Side widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Side Widget</div>
-                        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+                        <div class="card-header">Time and Date</div>
+                        <div class="card-body">
+                            <div id="clock"></div>
+                        </div>
                     </div>
                 </div>
             </div>

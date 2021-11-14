@@ -1,19 +1,6 @@
 <?php 
 include('../connection.php');
 
-if($user->isLoggedIn()) {
-    header("location:index.php");
-}
-
-if(isset($_POST['loginButton'])){
-
-    $userInfo = [
-        'email' => $_POST['email'],
-        'password' => $_POST['password']
-    ];
-    $user->authenticate($connection, $userInfo);
-}
-
 
 ?>
 <!DOCTYPE html>
@@ -53,8 +40,8 @@ if(isset($_POST['loginButton'])){
                         <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/changePass.php"><?php echo $_SESSION['firstName']. " ". $_SESSION['lastName'];?></a></li>
                         <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/logout.php">Logout</a></li>
                         <?php } else { ?>
-                        <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/sign.php">Sign</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/login.php">Login</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/sign.php">Sign</a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/login.php">Login</a></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -64,29 +51,31 @@ if(isset($_POST['loginButton'])){
         <div id="backgroundSignDiv">
             <div id="fullScreenSignDiv" class="container">
                 <!-- align-items-center z nejakeho dovodu nefunguje -->
-                <div class="heading">
-                    <h1 class="nadpis1">Login</h1>
+                <div>
+                    <h1 class="nadpis1">Create new post</h1>
                 </div>
                 <div class="row align-items-center">
 
                     <div class="col-md-2"></div>
-                    <form id="signForm" class="col-md-8" action="<?php echo htmlspecialchars('login.php', ENT_QUOTES); ?>" method="post">
+                    <form id="signForm" class="col-md-8" action="<?php echo htmlspecialchars('createPost.php', ENT_QUOTES); ?>" method="post">
                         <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <label for="postTitle">Post title</label>
+                            <input type="text" class="form-control" id="postTitle" placeholder="Title" name="postTitle">
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password">
-                            <!-- spravime REGEX ? -->
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" class="form-control" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="postTitle">Image</label>
+                            <input type="file" class="form-control" id="postImage" placeholder="Image" name="postImage">
                         </div>
                         <div>
                             <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary" id="submitButton" name="loginButton">Login</button>
+                                <button type="submit" class="btn btn-primary " id="submitButton" name="createButton">Create</button>
                             </div>
                         </div>
-                    </form>
+                        </form>
                     <div class="col-md-2"></div>
                 </div>
             </div>
