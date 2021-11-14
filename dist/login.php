@@ -40,13 +40,13 @@ if(isset($_POST['loginButton'])){
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#">Crypto</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#">Stocks</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#">Indices</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#">Real Estates</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#">Metals</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#">Bonds</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#">Invest Planner</a></li>
+                        <li class="nav-item"><a class="nav-link " href="crypto.php">Crypto</a></li>
+                        <li class="nav-item"><a class="nav-link " href="stocks.php">Stocks</a></li>
+                        <li class="nav-item"><a class="nav-link " href="indices.php">Indices</a></li>
+                        <li class="nav-item"><a class="nav-link " href="realEstates.php">Real Estates</a></li>
+                        <li class="nav-item"><a class="nav-link " href="metals.php">Metals</a></li>
+                        <li class="nav-item"><a class="nav-link " href="bonds.php">Bonds</a></li>
+                        <li class="nav-item"><a class="nav-link " href="investPlanner.php">Invest Planner</a></li>
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <?php if($user->isLoggedIn()) { ?>

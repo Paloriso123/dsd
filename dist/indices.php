@@ -50,7 +50,7 @@ include('../connection.php');
             </div>
         </nav>
         <!-- Page header with logo and tagline-->
-        <header class="py-2">
+        <header class="py-2" id="header">
             <div class="container">
                 <div class="text-center" class="bg-image bg-opacity-10" style="background-image: url('../images/indices.jpg'); height: 400px;">
                 </div>
@@ -180,7 +180,7 @@ include('../connection.php');
                         </div>
                     </div>
                     - Pagination-->
-                    <nav aria-label="Pagination">
+                    <!-- <nav aria-label="Pagination">
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
                             <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
@@ -191,7 +191,10 @@ include('../connection.php');
                             <li class="page-item"><a class="page-link" href="#!">15</a></li>
                             <li class="page-item"><a class="page-link" href="#!">Older</a></li>
                         </ul>
-                    </nav>
+                    </nav> -->
+                    <div class="col-md-12 text-center">
+                            <a href="#header"><button class="btn btn-primary mb-3">Back to top</button></a>
+                    </div>
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
