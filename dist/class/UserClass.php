@@ -126,6 +126,7 @@ class User {
         }
     }
 
+    // dostan data z databazy
     public function getUser($conn) {
         $sql = $conn['conn']->prepare(
                   "SELECT userAccountID, firstName, lastName, email "

@@ -5,6 +5,7 @@ if($user->isLoggedIn()) {
     header("location:index.php");
 }
 
+// ak stlacil submit button potom pridaj pouzivatela
 if(isset($_POST['submitButton'])){
 
     $userInfo = [
