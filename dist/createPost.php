@@ -1,6 +1,8 @@
 <?php 
 include('../connection.php');
 
+var_dump($connection);
+
 //overenie spravnej kategorie
 $category = $_GET['category'];
 $listOfCategories = array('crypto', 'indices', 'bonds', 'metals', 'realEstates', 'stocks');
