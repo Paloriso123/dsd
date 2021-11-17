@@ -33,6 +33,7 @@ require_once('dist/class/PostClass.php');
 require_once('dist/class/UserClass.php');
 
 $user = new User;
+$post = new Post;
 
 session_start();
 

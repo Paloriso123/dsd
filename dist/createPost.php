@@ -26,9 +26,13 @@ if(!$exist){
             'category' => $category,
             
         ];
-        $post->addPost($connection, $userInfo);
+        $post->addPost($connection, $postInfo);
     }
 }
+
+var_dump($connection);
+
+var_dump($_POST)
 
 ?>
 <!DOCTYPE html>
