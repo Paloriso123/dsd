@@ -65,7 +65,7 @@ include('../connection.php');
                     <!-- Featured blog post-->
                     <!-- VELKY JEDEN PRISPEVOK -->
                     <div class="card mb-4" id="crypto">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="#!"><img id="introImage" class="card-img-top" src="../images/crypto.jpg" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">CRYPTO</h2>
@@ -75,7 +75,7 @@ include('../connection.php');
                     </div>
                     <!-- VELKY JEDEN PRISPEVOK -->
                     <div class="card mb-4" id="stocks">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="#!"><img id="introImage" class="card-img-top" src="../images/stocks.jpg" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">STOCKS</h2>
@@ -85,7 +85,7 @@ include('../connection.php');
                     </div>
                     <!-- VELKY JEDEN PRISPEVOK -->
                     <div class="card mb-4" id="indices">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="#!"><img id="introImage" class="card-img-top" src="../images/indices.jpg" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">INDICES</h2>
@@ -95,7 +95,7 @@ include('../connection.php');
                     </div>
                     <!-- VELKY JEDEN PRISPEVOK -->
                     <div class="card mb-4" id="realEstates">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="#!"><img id="introImage" class="card-img-top" src="../images/realEstates.jpg" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">REAL ESTATES</h2>
@@ -105,7 +105,7 @@ include('../connection.php');
                     </div>
                     <!-- VELKY JEDEN PRISPEVOK -->
                     <div class="card mb-4" id="metals">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="#!"><img id="introImage" class="card-img-top" src="../images/metals.jpg" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">METALS</h2>
@@ -115,7 +115,7 @@ include('../connection.php');
                     </div>
                     <!-- VELKY JEDEN PRISPEVOK -->
                     <div class="card mb-4" id="bonds">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="#!"><img id="introImage" class="card-img-top" src="../images/bonds.jpg" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">BONDS</h2>
@@ -125,7 +125,7 @@ include('../connection.php');
                     </div>
                     <!-- VELKY JEDEN PRISPEVOK -->
                     <div class="card mb-4" id="investPlanner">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="#!"><img id="introImage" class="card-img-top" src="../images/investPlanner.jpg" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">INVEST PLANNER</h2>
@@ -243,7 +243,7 @@ include('../connection.php');
         </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Semestrálny projekt DSD - Pavol Melko, Richard Mišek 2021</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

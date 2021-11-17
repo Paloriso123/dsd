@@ -216,7 +216,7 @@ include('../connection.php');
                         <div class="card-body text-center">
                             <div class="row">
                                 <div class="col-sm-12">
-                                <a href="createPost.php"><button class="btn btn-primary" id="button-search" type="button">Create new post</button></a>
+                                <a href="createPost.php?category=indices"><button class="btn btn-primary" id="button-search" type="button">Create new post</button></a>
                                 </div>
                             </div>
                         </div>
