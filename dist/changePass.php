@@ -76,7 +76,9 @@ if(isset($_POST['changeButton'])){
                             <input type="password" class="form-control" id="passwordAgain" placeholder="Repeat your passowrd" name="passwordAgain">
                             <!-- spravime REGEX ? -->
                         </div>
-                        <button type="submit" class="btn btn-primary" id="submitButton" name="changeButton">Change</button>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary" id="submitButton" name="changeButton">Change</button>
+                        </div>
                     </form>
                     <div class="col-md-2"></div>
                 </div>

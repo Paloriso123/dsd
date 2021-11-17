@@ -3,7 +3,7 @@ include('../connection.php');
 
 //overenie spravnej kategorie
 $category = $_GET['category'];
-$listOfCategories = array("crypto", "indices", "bonds", "metals", "realEstates", "stocks");
+$listOfCategories = array('crypto', 'indices', 'bonds', 'metals', 'realEstates', 'stocks');
 
 $exist = false;
 
@@ -15,24 +15,19 @@ foreach($listOfCategories as $singleCategory){
 
 if(!$exist){
     header('Location: http://localhost/semestralny_projekt_dsd_paloriso/dist/');
-} else {
-    //pridanie clanku z formularu
-    if(isset($_POST['createButton'])){
-
-        $postInfo = [
-            'postTitle' => $_POST['postTitle'],
-            'description' => $_POST['description'],
-            'postImage' => $_POST['postImage'],
-            'category' => $category,
-            
-        ];
-        $post->addPost($connection, $postInfo);
-    }
 }
+//spravna premenna - pridanie clanku z formularu
+if(isset($_POST['createButton'])){
 
-var_dump($connection);
-
-var_dump($_POST)
+    $postInfo = [
+        'postTitle' => $_POST['postTitle'],
+        'description' => $_POST['description'],
+        'postImage' => $_POST['postImage'],
+        'category' => $category,
+        'createdByID' => $_SESSION['userID'],  
+    ];
+    $post->addPost($connection, $postInfo);
+}
 
 ?>
 <!DOCTYPE html>
@@ -84,29 +79,29 @@ var_dump($_POST)
             <div id="fullScreenSignDiv" class="container">
                 <!-- align-items-center z nejakeho dovodu nefunguje -->
                 <div>
-                    <h1 class="nadpis1">Create new post <?php echo $category. " , " .$_SESSION['userID'] ?> </h1>
+                    <h1 class="nadpis1">Create new post <?php echo $category." , ".$_SESSION['userID'] ?> </h1>
                 </div>
                 <div class="row align-items-center">
 
                     <div class="col-md-2"></div>
-                    <form id="signForm" class="col-md-8" action="<?php echo htmlspecialchars('createPost.php', ENT_QUOTES); ?>" method="post">
-                        <div class="form-group">
-                            <label for="postTitle">Post title</label>
-                            <input type="text" class="form-control" id="postTitle" placeholder="Title" name="postTitle">
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea name="description" id="description" class="form-control" placeholder="Description of the post" cols="30" rows="10"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="postTitle">Image</label>
-                            <input type="file" class="form-control" id="postImage" placeholder="Image" name="postImage">
-                        </div>
-                        <div>
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary " id="submitButton" name="createButton">Create</button>
+                        <form id="signForm" class="col-md-8" action="<?php echo htmlspecialchars('createPost.php', ENT_QUOTES); ?>" method="post">
+                            <div class="form-group">
+                                <label for="postTitle">Post title</label>
+                                <input type="text" class="form-control" id="postTitle" placeholder="Title" name="postTitle">
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea name="description" id="description" class="form-control" placeholder="Description of the post" cols="30" rows="10"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="postImage">Image</label>
+                                <input type="file" class="form-control" id="postImage" placeholder="Image" name="postImage">
+                            </div>
+                            <div>
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary " id="submitButton" name="createButton">Create</button>
+                                </div>
+                            </div>
                         </form>
                     <div class="col-md-2"></div>
                 </div>
