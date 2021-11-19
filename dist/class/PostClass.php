@@ -6,8 +6,8 @@ class Post {
         $postTitle = $values['postTitle'];
         $description = $values['description'];
         $postImage = $values['postImage'];
-        $category = $values['category'];
         $createdByID = $values['createdByID'];
+        $category = $values['foreignCategoryID'];
         
         //riso desktop
         $sql = $conn['conn'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "
@@ -19,7 +19,7 @@ class Post {
         . "VALUES (?, ?, ?, ?, ?)");
         $sql1->execute([$postTitle, $description, $postImage, $category, $createdByID]);
         
-        header('Location: https://www.facebook.com/');
+        // header('Location: https://www.facebook.com/');
         
         //odtialto je to dojebane - niesu rovnake databazy tak to nefunguje
         $sql2 = $conn['conn2'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "
@@ -30,6 +30,19 @@ class Post {
         . "VALUES (?, ?, ?, ?, ?)");
         $sql3->execute([$postTitle, $description, $postImage, $category, $createdByID]);
 
+    }
+    
+    public function getPostsFromCategory($conn, $categoryID) {
+
+        $sql1 = $conn['conn']->prepare(
+                  "SELECT * FROM posts WHERE foreingCategoryID  = $categoryID");
+        //vykona SQL prikaz
+        $rows = $sql1->execute();
+
+        //zapise SQL prikaz do 
+        $rows = $sql1->fetchAll();
+
+        return $rows;
     }
 }
 ?>

@@ -1,5 +1,11 @@
 <?php 
 include('../connection.php');
+
+$_SESSION["foreignCategoryID"] = 1;
+
+$rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"]);
+var_dump($rows);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +53,6 @@ include('../connection.php');
                     </ul>
                 </div>
                 <!-- log in + logout -->
-
             </div>
         </nav>
         <!-- Page header with logo and tagline-->
@@ -61,20 +66,33 @@ include('../connection.php');
         <div class="container">
             <div class="row">
                 <!-- Blog entries-->
+                <!--  -->
+                <!--  -->
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
                     <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="crypto">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">CRYPTO</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
+                    <?php 
+                    $postNumber = -1;
+                    foreach($rows as $row): 
+                        $postNumber = $postNumber + 1;?>
+
+                        <div class="card mb-4" id="crypto">
+                            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
+                                <?php echo $rows[$postNumber]["image"]; ?>
+                            </a>
+                            <div class="card-body">
+                                <div class="small text-muted"><?php echo $rows[$postNumber]["created"]; ?></div>
+                                <h2 class="card-title"><?php echo $rows[$postNumber]["title"]; ?></h2>
+                                <p class="card-text"><?php echo $rows[$postNumber]["content"]; ?></p>
+                                <a class="btn btn-primary" href="#!">Read more →</a>
+                            </div>
                         </div>
-                    </div>
+
+                     <?php endforeach; ?>       
+
+
                     <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="stocks">
+                    <!-- <div class="card mb-4" id="stocks">
                         <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">January 1, 2021</div>
@@ -82,57 +100,8 @@ include('../connection.php');
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
                             <a class="btn btn-primary" href="#!">Read more →</a>
                         </div>
-                    </div>
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="indices">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">INDICES</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="realEstates">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">REAL ESTATES</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="metals">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">METALS</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="bonds">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">BONDS</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="investPlanner">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">INVEST PLANNER</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
+                    </div> -->
+
                    
                             <!-- TU SU ZAKOMENTOVANE MALE OKIENKA -->
 <!-- 

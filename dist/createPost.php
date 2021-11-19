@@ -5,12 +5,26 @@ var_dump($connection);
 
 //overenie spravnej kategorie
 $category = $_GET['category'];
+
+$categoryID = 0;
+
+echo $category;
+echo gettype($category);
+
+if($category == 'crypto'){
+    echo "ANO premenna category == crypto ";
+    $categoryID = 1;
+    echo $categoryID . " to je jej hodnota ";
+}
+
 $listOfCategories = array('crypto', 'indices', 'bonds', 'metals', 'realEstates', 'stocks');
 
 $exist = false;
 
+
 foreach($listOfCategories as $singleCategory){
     if($category == $singleCategory){
+        //pridelenie cisla kategorie
         $exist = true;
     }
 }
@@ -21,11 +35,19 @@ if(!$exist){
 //spravna premenna - pridanie clanku z formularu
 if(isset($_POST['createButton'])){
 
+    // echo $categoryID . "toto je po stlaceni createButton" . "\n";
+
+    // echo "!!! toto je foreignCategoryID = " . $_SESSION["foreignCategoryID"] . "!!! \n";
+    // echo "!!! toto je postTitle = " . $_POST['postTitle'] . "!!! \n";
+    // echo "!!!toto je description = " . $_POST['description'] . "!!!\n";
+    // echo "!!!toto je postImage = " . $_POST['postImage'] . "!!!\n";
+    // echo "!!!toto je categoryID = " . $categoryID . "!!!\n";
+    // echo "!!!toto je userID = " . $_SESSION['userID'] . "!!!\n"; 
     $postInfo = [
         'postTitle' => $_POST['postTitle'],
         'description' => $_POST['description'],
         'postImage' => $_POST['postImage'],
-        'category' => $category,
+        'foreignCategoryID' => $_SESSION["foreignCategoryID"],
         'createdByID' => $_SESSION['userID'],  
     ];
     $post->addPost($connection, $postInfo);
@@ -81,7 +103,7 @@ if(isset($_POST['createButton'])){
             <div id="fullScreenSignDiv" class="container">
                 <!-- align-items-center z nejakeho dovodu nefunguje -->
                 <div>
-                    <h1 class="nadpis1">Create new post <?php echo $category." , ".$_SESSION['userID'] ?> </h1>
+                    <h1 class="nadpis1">Create new post <?php echo "name of category " .$category. " number of category " . $categoryID?> </h1>
                 </div>
                 <div class="row align-items-center">
 

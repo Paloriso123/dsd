@@ -127,18 +127,21 @@ class User {
     }
 
     // dostan data z databazy
+    
     public function getUser($conn) {
         $sql = $conn['conn']->prepare(
                   "SELECT userAccountID, firstName, lastName, email "
                 . "FROM useraccount "
                 . "WHERE userAccountID = ? AND deleted IS NULL"
                 );
-        $sql->execute([$_SESSION['userAcountID']]);
+
+        // $sql->execute([$_SESSION['userAcountID']]);
+        
         $row = $sql->fetch();
         
         return $row;
     }
-
+    
 }
 
 
