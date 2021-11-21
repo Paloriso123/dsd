@@ -138,9 +138,14 @@ include('../connection.php');
                 borderColor: "rgba(0,0,255,0)",
                 data: yValues
                 }]
-            },
+            },  
             options: {
                 legend: {display: false},
+                    title: {
+                    display: true,
+                    text: "Invest planner",
+                    fontSize: 16
+                    },
                 scales: {
                 yAxes: [{ticks: {min: 100, max:1600}}],
                 }
@@ -200,6 +205,11 @@ include('../connection.php');
                 },
                 options: {
                     legend: {display: false},
+                    title: {
+                    display: true,
+                    text: "Invest planner",
+                    fontSize: 16
+                    },
                     scales: {
                     yAxes: [{ticks: {min: yHodnoty[0], max:yHodnoty[yHodnoty.length-1]}}],
                     }
