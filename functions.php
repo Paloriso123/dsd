@@ -25,13 +25,13 @@ function connectToDBS($servername, $username, $password, $dbname) {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password, [
         PDO::ATTR_TIMEOUT => 1, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
-        echo "Connection succeded on [ $servername $pcName ] <br>";
+        // echo "Connection succeded on [ $servername $pcName ] <br>";
 
         // risoDesktop 25.60.204.245, nefunguje mysql/db a tam nejsu udaje nikoho z pouzivatelov ... natvrdo sme to nakopirovali mysql/db
 
         return $conn;
     } catch (PDOException $e) {
-        echo "Connection failed [ $servername $pcName ] :  " . $e->getMessage() . " <br>";
+        // echo "Connection failed [ $servername $pcName ] :  " . $e->getMessage() . " <br>";
         return 0;
     }
 }

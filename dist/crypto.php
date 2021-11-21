@@ -4,7 +4,7 @@ include('../connection.php');
 $_SESSION["foreignCategoryID"] = 1;
 
 $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"]);
-var_dump($rows);
+// var_dump($rows);
 
 ?>
 <!DOCTYPE html>
@@ -21,6 +21,9 @@ var_dump($rows);
         <link href="css/styles.css" rel="stylesheet" />
         <!-- custom CSS not built in -->
         <link href="css/customCss.css" rel="stylesheet" />
+        <!-- import kniznic pre JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
         <script src="js/clock.js"></script>
     </head>
     <body onload="realtimeClock()">
@@ -70,98 +73,31 @@ var_dump($rows);
                 <!--  -->
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <?php 
-                    $postNumber = -1;
-                    foreach($rows as $row): 
-                        $postNumber = $postNumber + 1;?>
 
-                        <div class="card mb-4" id="crypto">
-                            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
-                                <?php echo $rows[$postNumber]["image"]; ?>
-                            </a>
-                            <div class="card-body">
-                                <div class="small text-muted"><?php echo $rows[$postNumber]["created"]; ?></div>
-                                <h2 class="card-title"><?php echo $rows[$postNumber]["title"]; ?></h2>
-                                <p class="card-text"><?php echo $rows[$postNumber]["content"]; ?></p>
-                                <a class="btn btn-primary" href="#!">Read more →</a>
-                            </div>
-                        </div>
+                    <!-- Zobrazenie vsetkych prispevkov -->
+                    <div id="allPosts">
+                        <?php 
+                        $postNumber = -1;
+                        foreach($rows as $row): 
+                            $postNumber = $postNumber + 1;?>
 
-                     <?php endforeach; ?>       
-
-
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <!-- <div class="card mb-4" id="stocks">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">STOCKS</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div> -->
-
-                   
-                            <!-- TU SU ZAKOMENTOVANE MALE OKIENKA -->
-<!-- 
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                            <div class="card mb-4" id="crypto <?php echo "crypto".$postNumber?> ">
+                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
+                                    <?php echo $rows[$postNumber]["image"]; ?>
+                                </a>
                                 <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
+                                    <div class="small text-muted"><?php echo $rows[$postNumber]["created"]; ?></div>
+                                    <h2 class="card-title"><?php echo $rows[$postNumber]["title"]; ?></h2>
+                                    <p class="card-text"><?php echo substr($rows[$postNumber]["content"],0,150); echo "..."; ?></p>
+                                    <input type="hidden" name="uname" id="<?php echo "postNumber".$postNumber?>" value="<?php echo $postNumber; ?>">
+                                    <!-- echo $rows[$postNumber]["image"] -->
+                                    <!-- <img src="" width="175" height="200" /> -->
+                                    <a class="btn btn-primary" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/crypto.php?post=<?php echo $rows[$postNumber]['postID']?>"  id="showHideButton">Read more → <?php echo $rows[$postNumber]['postID']?></a>
                                 </div>
                             </div>
+                        <?php endforeach; ?>       
+                     </div>
 
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                            <div class="card mb-4" id="KOKOT">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    - Pagination-->
-                    <!-- <nav aria-label="Pagination">
-                        <hr class="my-0" />
-                        <ul class="pagination justify-content-center my-4">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">Older</a></li>
-                        </ul>
-                    </nav> -->
                     <div class="col-md-12 text-center">
                             <a href="#header"><button class="btn btn-primary mb-3">Back to top</button></a>
                     </div>
@@ -208,7 +144,7 @@ var_dump($rows);
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+
     </body>
 </html>
 
