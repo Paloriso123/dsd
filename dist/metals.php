@@ -81,7 +81,7 @@ $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"])
                                 <div class="small text-muted"><?php echo $rows[$postNumber]["created"]; ?></div>
                                 <h2 class="card-title"><?php echo $rows[$postNumber]["title"]; ?></h2>
                                 <p class="card-text"><?php echo $rows[$postNumber]["content"]; ?></p>
-                                <a class="btn btn-primary" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/showPost.php?singleOpenedPostID=<?php echo $rows[$postNumber]['postID']; $_SESSION['postIDSession']=$rows[$postNumber]['postID'];?>"  id="showHideButton">Read more → <?php echo $rows[$postNumber]['postID']?></a>
+                                <a class="btn btn-primary" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/showPost.php?singleOpenedPostID=<?php echo $rows[$postNumber]['postID']?>"  id="showHideButton">Read more → <?php echo $rows[$postNumber]['postID']?></a>
                             </div>
                         </div>
 
