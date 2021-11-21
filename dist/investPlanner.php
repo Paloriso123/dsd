@@ -53,8 +53,7 @@ include('../connection.php');
         <!-- Page header with logo and tagline-->
         <header class="py-2" id="header">
             <div class="container">
-                <div class="text-center" class="bg-image bg-opacity-10" style="background-image: url('../images/investPlanner.jpg'); height: 400px;">
-                </div>
+                <h1>INVEST PLANNER</h1>
             </div>
         </header>
         <!-- Page content-->
@@ -64,173 +63,15 @@ include('../connection.php');
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
                     <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="crypto">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                    <div class="card mb-4" id="">
                         <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">CRYPTO</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
+                            <canvas id="myChart" style="width:100%;max-width:810px"></canvas>
+                            <canvas id="myChart2" style="width:100%;max-width:810px"></canvas>
                         </div>
-                    </div>
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="stocks">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">STOCKS</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="indices">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">INDICES</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="realEstates">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">REAL ESTATES</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="metals">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">METALS</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="bonds">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">BONDS</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="investPlanner">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">INVEST PLANNER</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="#!">Read more →</a>
-                        </div>
-                    </div>
-                   
-                            <!-- TU SU ZAKOMENTOVANE MALE OKIENKA -->
-<!-- 
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                            <div class="card mb-4" id="KOKOT">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    - Pagination-->
-                    <!-- <nav aria-label="Pagination">
-                        <hr class="my-0" />
-                        <ul class="pagination justify-content-center my-4">
-                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
-                            <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                            <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                            <li class="page-item"><a class="page-link" href="#!">Older</a></li>
-                        </ul>
-                    </nav> -->
-                    <div class="col-md-12 text-center">
-                            <a href="#header"><button class="btn btn-primary mb-3">Back to top</button></a>
                     </div>
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
-                    <!-- Search widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Search</div>
-                        <div class="card-body">
-                            <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Categories widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Categories</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Side widget-->
                     <div class="card mb-4">
                         <div class="card-header">Time and Date</div>
@@ -238,7 +79,34 @@ include('../connection.php');
                             <div id="clock"></div>
                         </div>
                     </div>
+                    <!-- Invest planner-->
+                    <div class="card mb-4">
+                        <div class="card-header">Categories</div>
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <div class="mt-2">
+                                    <label for="startingMoney">Starting money</label>
+                                    <input type="number" name="startingMoney" placeholder="Your starting money" id="startingMoney">
+                                </div>
+                                <div class="mt-2">
+                                    <label for="interestRate">Interest rate</label>
+                                    <input type="number" name="interestRate" placeholder="Value of interest rate" id="interestRate">
+                                </div>
+                                <div class="mt-2">
+                                    <label for="years">Investing age</label>
+                                    <input type="number" name="years" placeholder="Age of investing" id="years">
+                                </div>
+                                <div class="mt-2">
+                                    <button class="btn btn-primary " onclick="calculate()">GO!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="col-lg-12">
+                    <p id="finalInfo"></p>
+                </div>
+
             </div>
         </div>
         <!-- Footer-->
@@ -249,6 +117,96 @@ include('../connection.php');
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <!-- pridanie Chart.js kniznice -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"> </script>
+        <script>
+            // years of investing count {n}
+            document.getElementById("myChart").style.display = "none";
+            document.getElementById("myChart2").style.display = "block";
+
+            var xValues = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+            var yValues = [100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600];
+
+            new Chart("myChart2", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "rgba(0,0,255,0)",
+                borderColor: "rgba(0,0,255,0)",
+                data: yValues
+                }]
+            },
+            options: {
+                legend: {display: false},
+                scales: {
+                yAxes: [{ticks: {min: 100, max:1600}}],
+                }
+            }
+            });
+            
+
+            function calculate(){
+                document.getElementById("myChart").style.display = "block";
+                document.getElementById("myChart2").style.display = "none";
+                // years of investing count {n}
+                var roky = document.getElementById("years").value;
+                roky = parseFloat(roky);
+
+                var xRoky = [];
+                for (var i = 0; i <= roky; i++) {
+                    console.log("rok "+i);
+                    xRoky.push(i);
+                }
+            
+                // interest rate {r}
+                var interestRate = document.getElementById("interestRate").value;
+                interestRate = parseFloat(interestRate);
+
+                // starting money count {K0}
+                var startingMoney = document.getElementById("startingMoney").value;
+                startingMoney = parseFloat(startingMoney);
+                
+                
+                // total money {Kn}
+                var totalMoney = startingMoney * Math.pow((1+interestRate/100),roky);
+                totalMoney = parseFloat(totalMoney);
+                
+                document.getElementById("finalInfo").innerHTML = "Pri počiatočnom vklade "+startingMoney+"€ bude o "+roky+ "roky(rokov) pri sadzbe "+interestRate+ "% váš kapitál zhodnotený na "+totalMoney.toFixed(2)+"€";
+
+
+                //naplnenie hodnot x pocet rokov
+                var yHodnoty = [];
+                for (var i = 0; i <= roky; i++) {
+                    console.log("rok "+i);
+                    yHodnoty.push(startingMoney * Math.pow((1+interestRate/100),i));
+                }
+
+                console.log(yHodnoty);
+
+                new Chart("myChart", {
+                type: "line",
+                data: {
+                    labels: xRoky,
+                    datasets: [{
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor: "rgba(0,0,255,1.0)",
+                    borderColor: "rgba(0,0,255,0.1)",
+                    data: yHodnoty
+                    }]
+                },
+                options: {
+                    legend: {display: false},
+                    scales: {
+                    yAxes: [{ticks: {min: yHodnoty[0], max:yHodnoty[yHodnoty.length-1]}}],
+                    }
+                }
+                });
+            }
+        </script>
     </body>
 </html>
 
