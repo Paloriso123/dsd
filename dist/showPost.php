@@ -1,18 +1,17 @@
 <?php 
-include('../connection.php');
+require_once('../connection.php');
+require_once('class/PostClass.php');
+$post = new Post;
 
 $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"]);
 
-echo $_SESSION['postIDSession'];
-
-$singleOpenedPostID = $_GET['singleOpenedPostID'];
+if(isset($_GET['singleOpenedPostID'])) 
+    $_SESSION['postIDSession'] = $_GET['singleOpenedPostID'];
 
 if(isset($_POST['deleteButton'])){
 
     $post->deletePost($connection, $_SESSION['postIDSession']);
 }
-
-var_dump($rows);
 
 
 ?>
@@ -89,8 +88,7 @@ var_dump($rows);
                         $postNumber = -1;
                         foreach($rows as $row): 
                             $postNumber = $postNumber + 1;
-                            $_SESSION['postIDSession']=$postNumber; echo $_SESSION['postIDSession']; 
-                            if($singleOpenedPostID == $rows[$postNumber]['postID']){ ?>
+                            if($_SESSION['postIDSession'] == $rows[$postNumber]['postID']){ ?>
                                 <div class="card mb-4" id="crypto <?php echo "crypto".$postNumber?> ">
                                     <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
                                         <?php echo $rows[$postNumber]["image"]; ?>
@@ -102,7 +100,6 @@ var_dump($rows);
                                         <input type="hidden" name="uname" id="<?php echo "postNumber".$postNumber?>" value="<?php echo $postNumber; ?>">
                                         <!-- echo $rows[$postNumber]["image"] -->
                                         <!-- <img src="" width="175" height="200" /> -->
-                                        <?php break; ?> 
                                     </div>
                                 </div>
                         <?php } endforeach; ?>       
