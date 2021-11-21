@@ -89,10 +89,9 @@ $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"])
                                     <div class="small text-muted"><?php echo $rows[$postNumber]["created"]; ?></div>
                                     <h2 class="card-title"><?php echo $rows[$postNumber]["title"]; ?></h2>
                                     <p class="card-text"><?php echo substr($rows[$postNumber]["content"],0,150); echo "..."; ?></p>
-                                    <input type="hidden" name="uname" id="<?php echo "postNumber".$postNumber?>" value="<?php echo $postNumber; ?>">
                                     <!-- echo $rows[$postNumber]["image"] -->
                                     <!-- <img src="" width="175" height="200" /> -->
-                                    <a class="btn btn-primary" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/crypto.php?post=<?php echo $rows[$postNumber]['postID']?>"  id="showHideButton">Read more → <?php echo $rows[$postNumber]['postID']?></a>
+                                    <a class="btn btn-primary" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/showPost.php?singleOpenedPostID=<?php echo $rows[$postNumber]['postID']?>"  id="showHideButton">Read more → <?php echo $rows[$postNumber]['postID']?></a>
                                 </div>
                             </div>
                         <?php endforeach; ?>       
