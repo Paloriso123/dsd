@@ -3,12 +3,17 @@ include('../connection.php');
 
 $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"]);
 
+echo $_SESSION['postIDSession'];
+
 $singleOpenedPostID = $_GET['singleOpenedPostID'];
 
 if(isset($_POST['deleteButton'])){
 
-    $post->deletePost($connection, $singleOpenedPostID);
+    $post->deletePost($connection, $_SESSION['postIDSession']);
 }
+
+var_dump($rows);
+
 
 ?>
 <!DOCTYPE html>
@@ -84,6 +89,7 @@ if(isset($_POST['deleteButton'])){
                         $postNumber = -1;
                         foreach($rows as $row): 
                             $postNumber = $postNumber + 1;
+                            $_SESSION['postIDSession']=$postNumber; echo $_SESSION['postIDSession']; 
                             if($singleOpenedPostID == $rows[$postNumber]['postID']){ ?>
                                 <div class="card mb-4" id="crypto <?php echo "crypto".$postNumber?> ">
                                     <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
@@ -96,10 +102,11 @@ if(isset($_POST['deleteButton'])){
                                         <input type="hidden" name="uname" id="<?php echo "postNumber".$postNumber?>" value="<?php echo $postNumber; ?>">
                                         <!-- echo $rows[$postNumber]["image"] -->
                                         <!-- <img src="" width="175" height="200" /> -->
+                                        <?php break; ?> 
                                     </div>
                                 </div>
                         <?php } endforeach; ?>       
-                     </div>
+                    </div>
 
                     <div class="col-md-12 text-center">
                             <a href="#header"><button class="btn btn-primary mb-3">Back to top</button></a>
@@ -114,12 +121,10 @@ if(isset($_POST['deleteButton'])){
                                 <div class="card-header">Edit your post</div>
                                 <div class="card-body text-center">
                                     <div class="row">
-                                        <div class="col-sm-6">
-                                            <a href="#"><button class="btn btn-primary" id="button-edit" type="button" name="editButton" value="0">E D I T</button></a>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <a href="#"><button class="btn btn-primary" id="button-delete" type="button" name="deleteButton" value="0">DELETE</button></a>
-                                        </div>
+                                        <form action="<?php echo htmlspecialchars('showPost.php', ENT_QUOTES); ?>" method="post">
+                                            <button class="btn btn-primary" id="button-edit" type="submit" name="editButton">E D I T</button>
+                                            <button class="btn btn-primary" id="button-delete" type="submit" name="deleteButton">DELETE</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

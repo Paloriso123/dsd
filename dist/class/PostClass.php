@@ -36,16 +36,16 @@ class Post {
         $sql = $conn['conn'] -> prepare("DELETE FROM posts WHERE postID = ?");
         $sql->execute([$postID]);
 
-        $sql1 = $conn['conn'] -> prepare("DELETE FROM posts WHERE postID = ?");
+        $sql1 = $conn['conn1'] -> prepare("DELETE FROM posts WHERE postID = ?");
         $sql1->execute([$postID]);
 
-        $sql2 = $conn['conn'] -> prepare("DELETE FROM posts WHERE postID = ?");
-        $sql2->execute([$postID]);
+        // $sql2 = $conn['conn2'] -> prepare("DELETE FROM posts WHERE postID = ?");
+        // $sql2->execute([$postID]);
 
-        $sql3 = $conn['conn'] -> prepare("DELETE FROM posts WHERE postID = ?");
-        $sql3->execute([$postID]);
+        // $sql3 = $conn['conn3'] -> prepare("DELETE FROM posts WHERE postID = ?");
+        // $sql3->execute([$postID]);
 
-        header("location:index.php");
+        header("location:https://www.facebook.com/");
     }
     
     public function getPostsFromCategory($conn, $categoryID) {
