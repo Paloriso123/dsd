@@ -2,10 +2,13 @@
 include('../connection.php');
 
 $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"]);
-var_dump($rows);
 
 $singleOpenedPostID = $_GET['singleOpenedPostID'];
 
+if(isset($_POST['deleteButton'])){
+
+    $post->deletePost($connection, $singleOpenedPostID);
+}
 
 ?>
 <!DOCTYPE html>
@@ -112,10 +115,10 @@ $singleOpenedPostID = $_GET['singleOpenedPostID'];
                                 <div class="card-body text-center">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <a href="investPlanner.php"><button class="btn btn-primary" id="button-search" type="button">E D I T</button></a>
+                                            <a href="#"><button class="btn btn-primary" id="button-edit" type="button" name="editButton" value="0">E D I T</button></a>
                                         </div>
                                         <div class="col-sm-6">
-                                            <a href="investPlanner.php"><button class="btn btn-primary" id="button-search" type="button">DELETE</button></a>
+                                            <a href="#"><button class="btn btn-primary" id="button-delete" type="button" name="deleteButton" value="0">DELETE</button></a>
                                         </div>
                                     </div>
                                 </div>

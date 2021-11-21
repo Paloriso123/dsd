@@ -26,7 +26,6 @@ $connection = [
      'conn3' => $conn3
 ];     
 
-require_once('dist/class/CommentClass.php');
 require_once('dist/class/MessageClass.php');
 require_once('dist/class/PostClass.php');
 require_once('dist/class/UserClass.php');

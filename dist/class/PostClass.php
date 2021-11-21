@@ -31,6 +31,22 @@ class Post {
         $sql3->execute([$postTitle, $description, $postImage, $category, $createdByID]);
 
     }
+
+    public function deletePost($conn, $postID) {
+        $sql = $conn['conn'] -> prepare("DELETE FROM posts WHERE postID = ?");
+        $sql->execute([$postID]);
+
+        $sql1 = $conn['conn'] -> prepare("DELETE FROM posts WHERE postID = ?");
+        $sql1->execute([$postID]);
+
+        $sql2 = $conn['conn'] -> prepare("DELETE FROM posts WHERE postID = ?");
+        $sql2->execute([$postID]);
+
+        $sql3 = $conn['conn'] -> prepare("DELETE FROM posts WHERE postID = ?");
+        $sql3->execute([$postID]);
+
+        header("location:index.php");
+    }
     
     public function getPostsFromCategory($conn, $categoryID) {
 
