@@ -89,20 +89,24 @@ if(isset($_POST['deleteButton'])){
                         foreach($rows as $row): 
                             $postNumber = $postNumber + 1;
                             if($_SESSION['postIDSession'] == $rows[$postNumber]['postID']){ ?>
-                                <div class="card mb-4" id="crypto <?php echo "crypto".$postNumber?> ">
-                                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
-                                        <?php echo $rows[$postNumber]["image"]; ?>
-                                    </a>
-                                    <div class="card-body">
-                                        <div class="small text-muted"><?php echo $rows[$postNumber]["created"]; ?></div>
-                                        <h2 class="card-title"><?php echo $rows[$postNumber]["title"]; ?></h2>
-                                        <p class="card-text"><?php echo $rows[$postNumber]["content"]; ?></p>
-                                        <input type="hidden" name="uname" id="<?php echo "postNumber".$postNumber?>" value="<?php echo $postNumber; ?>">
-                                        <!-- echo $rows[$postNumber]["image"] -->
-                                        <!-- <img src="" width="175" height="200" /> -->
-                                    </div>
-                                </div>
-                        <?php } endforeach; ?>       
+                                <div class="col-md-2"></div>
+                                    <form id="signForm" class="col-md-12" action="<?php echo htmlspecialchars('createPost.php', ENT_QUOTES); ?>" method="post">
+                                        <div class="form-group">
+                                            <label for="postTitle">Post title</label>
+                                            <input type="text" class="form-control" id="postTitle" placeholder="Title" name="postTitle" value="<?php echo $rows[$postNumber]['title'];?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description">Description</label>
+                                            <textarea name="description" id="description" class="form-control" placeholder="Description of the post" cols="30" rows="10"><?php echo $rows[$postNumber]['content']?></textarea>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex justify-content-center">
+                                                <button type="submit" class="btn btn-primary " id="submitButton" name="createButton">Edit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                <div class="col-md-2"></div>
+                        <?php } endforeach; ?>
                     </div>
 
                     <div class="col-md-12 text-center">
@@ -112,20 +116,6 @@ if(isset($_POST['deleteButton'])){
                 <!-- Side widgets-->
                 <div class="col-lg-4">
                     <!-- Categories widget-->
-                    <?php if($user->isLoggedIn()) { ?>
-                        <?php if($_SESSION['userID'] == $rows[$postNumber]["createdByID"]) {?>
-                            <div class="card mb-4">
-                                <div class="card-header">Edit your post</div>
-                                <div class="card-body text-center">
-                                    <div class="row">
-                                        <form action="<?php echo htmlspecialchars('showPost.php', ENT_QUOTES); ?>" method="post">
-                                            <a class="btn btn-primary" id="button-edit" type="submit" name="editButton" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/editPost.php?singleOpenedPostID=<?php echo $_SESSION['postIDSession']?>">E D I T</a>
-                                            <button class="btn btn-primary" id="button-delete" type="submit" name="deleteButton">DELETE</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php }?>
                     <div class="card mb-4">
                         <div class="card-header">May interest you</div>
                         <div class="card-body text-center">
@@ -136,7 +126,6 @@ if(isset($_POST['deleteButton'])){
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
                     <!-- Side widget-->
                     <div class="card mb-4">
                         <div class="card-header">Time and Date</div>

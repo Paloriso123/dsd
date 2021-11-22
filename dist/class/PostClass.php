@@ -50,7 +50,7 @@ class Post {
     
     public function getPostsFromCategory($conn, $categoryID) {
 
-        $sql1 = $conn['conn']->prepare(
+        $sql1 = $conn['conn1']->prepare(
                   "SELECT * FROM posts WHERE foreingCategoryID  = $categoryID");
         //vykona SQL prikaz
         $rows = $sql1->execute();
