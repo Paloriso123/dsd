@@ -133,6 +133,11 @@ include('../connection.php');
                             <a class="btn btn-primary" href="investPlanner.php">Read more →</a>
                         </div>
                     </div>
+<<<<<<< HEAD
+=======
+                   
+                           
+>>>>>>> 4ef64c8e759814da3429918ec88ec03b5e8af220
                     <div class="col-md-12 text-center">
                             <a href="#header"><button class="btn btn-primary mb-3">Back to top</button></a>
                     </div>
@@ -141,7 +146,7 @@ include('../connection.php');
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Search</div>
+                        <div class="card-header">Search BAR</div>
                         <div class="card-body">
                             <div class="input-group">
                                 <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />

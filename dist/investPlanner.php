@@ -134,8 +134,8 @@ include('../connection.php');
                 datasets: [{
                 fill: false,
                 lineTension: 0,
-                backgroundColor: "rgba(0,0,255,0)",
-                borderColor: "rgba(0,0,255,0)",
+                backgroundColor: "rgba(0,0,254,0)",
+                borderColor: "rgba(0,0,254,0)",
                 data: yValues
                 }]
             },  
