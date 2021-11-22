@@ -8,10 +8,15 @@ $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"])
 if(isset($_GET['singleOpenedPostID'])) 
     $_SESSION['postIDSession'] = $_GET['singleOpenedPostID'];
 
-if(isset($_POST['deleteButton'])){
-
-    $post->deletePost($connection, $_SESSION['postIDSession']);
+if(isset($_POST['editButton'])){
+    $postInfo = [
+        'postTitle' => $_POST['postTitle'],
+        'description' => $_POST['description'],
+        'postID' => $_SESSION['postIDSession'],
+    ];
+    $post->editPost($connection, $postInfo);
 }
+
 
 
 ?>
@@ -90,7 +95,7 @@ if(isset($_POST['deleteButton'])){
                             $postNumber = $postNumber + 1;
                             if($_SESSION['postIDSession'] == $rows[$postNumber]['postID']){ ?>
                                 <div class="col-md-2"></div>
-                                    <form id="signForm" class="col-md-12" action="<?php echo htmlspecialchars('createPost.php', ENT_QUOTES); ?>" method="post">
+                                    <form id="editForm" class="col-md-12" action="<?php echo htmlspecialchars('editPost.php', ENT_QUOTES); ?>" method="post">
                                         <div class="form-group">
                                             <label for="postTitle">Post title</label>
                                             <input type="text" class="form-control" id="postTitle" placeholder="Title" name="postTitle" value="<?php echo $rows[$postNumber]['title'];?>">
@@ -101,7 +106,7 @@ if(isset($_POST['deleteButton'])){
                                         </div>
                                         <div>
                                             <div class="d-flex justify-content-center">
-                                                <button type="submit" class="btn btn-primary " id="submitButton" name="createButton">Edit</button>
+                                                <button type="submit" class="btn btn-primary " id="submitButton" name="editButton">Edit</button>
                                             </div>
                                         </div>
                                     </form>

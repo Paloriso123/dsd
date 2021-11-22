@@ -29,9 +29,9 @@ foreach($listOfCategories as $singleCategory){
     }
 }
 
-if(!$exist){
-    header('Location: http://localhost/semestralny_projekt_dsd_paloriso/dist/');
-}
+// if(!$exist){
+//     header('Location: http://localhost/semestralny_projekt_dsd_paloriso/dist/');
+// }
 //spravna premenna - pridanie clanku z formularu
 if(isset($_POST['createButton'])){
 

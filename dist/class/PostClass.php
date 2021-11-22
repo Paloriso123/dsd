@@ -45,7 +45,31 @@ class Post {
         // $sql3 = $conn['conn3'] -> prepare("DELETE FROM posts WHERE postID = ?");
         // $sql3->execute([$postID]);
 
-        header("location:https://www.facebook.com/");
+        header("location:http://localhost/semestralny_projekt_dsd_paloriso/dist/");
+    }
+
+    public function editPost($conn,$values) {
+        var_dump($values);
+
+        $postTitle = $values['postTitle'];
+        $description = $values['description'];
+        $postID = $values['postID'];
+
+
+        $sql = $conn['conn'] -> prepare("UPDATE posts SET title = ?, content= ? WHERE postID = ?");
+        $sql->execute([$postTitle, $description, $postID]);
+
+        $sql1 = $conn['conn1'] -> prepare("UPDATE posts SET title = ?, content= ? WHERE postID = ?");
+        $sql1->execute([$postTitle, $description, $postID]);
+
+        // $sql2 = $conn['conn2'] -> prepare("UPDATE posts SET title = ?, content= ? WHERE postID = ?");
+        // $sql2->execute([$postTitle, $description, $postID]);
+
+        // $sql3 = $conn['conn3'] -> prepare("UPDATE posts SET title = ?, content= ? WHERE postID = ?");
+        // $sql3->execute([$postTitle, $description, $postID]);
+
+
+        //header("location: https://www.facebook.com/");
     }
     
     public function getPostsFromCategory($conn, $categoryID) {
