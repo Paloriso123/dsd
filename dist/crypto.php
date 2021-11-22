@@ -1,10 +1,21 @@
 <?php 
 include('../connection.php');
+require_once('class/PostClass.php');
+$post = new Post;
 
 $_SESSION["foreignCategoryID"] = 1;
 
 $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"]);
+$searchedRows = NULL;
 // var_dump($rows);
+
+if(isset($_POST['searchButton'])){
+    $postInfoSearched = [
+        'searchText' => $_POST['searchText'],
+        'foreignCategoryID' => $_SESSION["foreignCategoryID"],
+    ];
+    $searchedRows = $post->getPostsFromCategoryByKeyWord($connection, $postInfoSearched['foreignCategoryID'], $postInfoSearched['searchText']);
+}
 
 ?>
 <!DOCTYPE html>
@@ -97,9 +108,34 @@ $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"])
                         <?php endforeach; ?>       
                      </div>
 
+                     <!-- Zobrazenie search prispevkov -->
+                    <div id="searchedPosts">
+                        <?php if($searchedRows != NULL){
+                        $postNumber = -1;
+                        foreach($searchedRows as $row): 
+                            $postNumber = $postNumber + 1;?>
+
+                            <div class="card mb-4" id="crypto <?php echo "crypto".$postNumber?> ">
+                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
+                                    <?php echo $searchedRows[$postNumber]["image"]; ?>
+                                </a>
+                                <div class="card-body">
+                                    <div class="small text-muted"><?php echo $searchedRows[$postNumber]["created"]; ?></div>
+                                    <h2 class="card-title"><?php echo $searchedRows[$postNumber]["title"]; ?></h2>
+                                    <p class="card-text"><?php echo substr($searchedRows[$postNumber]["content"],0,150); echo "..."; ?></p>
+                                    <!-- echo $searchedRows[$postNumber]["image"] -->
+                                    <!-- <img src="" width="175" height="200" /> -->
+                                    <a class="btn btn-primary" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/showPost.php?singleOpenedPostID=<?php echo $searchedRows[$postNumber]['postID']?>"  id="showHideButton">Read more → <?php echo $rows[$postNumber]['postID']?></a>
+                                </div>
+                            </div>
+                        <?php endforeach;} ?>       
+                     </div>
+
                     <div class="col-md-12 text-center">
                             <a href="#header"><button class="btn btn-primary mb-3">Back to top</button></a>
                     </div>
+
+                    
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
@@ -108,8 +144,10 @@ $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"])
                         <div class="card-header">Search</div>
                         <div class="card-body">
                             <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                                <form id="searchForm" class="col-md-8" action="<?php echo htmlspecialchars('crypto.php', ENT_QUOTES); ?>" method="post">
+                                    <input class="form-control" type="text" name="searchText" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" onchange="hideShow()" />
+                                    <button class="btn btn-primary" id="button-search" type="submit" name="searchButton">Go!</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -143,7 +181,13 @@ $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"])
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
+        <script>
 
+            function hideShow(){
+                document.getElementById("allPosts").style.display = "none";
+                document.getElementById("searchedPosts").style.display = "block";
+            }
+        </script>
     </body>
 </html>
 

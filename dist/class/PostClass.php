@@ -84,5 +84,18 @@ class Post {
 
         return $rows;
     }
+
+    public function getPostsFromCategoryByKeyWord($conn, $categoryID, $keyWord) {
+
+        $sql1 = $conn['conn1']->prepare(
+                  "SELECT * FROM posts WHERE foreingCategoryID  = ? AND content LIKE '%{$keyWord}%'");
+        //vykona SQL prikaz
+        $searchedRows = $sql1->execute([$categoryID]);
+
+        //zapise SQL prikaz do 
+        $searchedRows = $sql1->fetchAll();
+        
+        return $searchedRows;
+    }
 }
 ?>
