@@ -37,18 +37,18 @@ if(isset($_POST['changeButton'])){
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#crypto">Crypto</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#stocks">Stocks</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#indices">Indices</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#realEstates">Real Estates</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#metals">Metals</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#bonds">Bonds</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#investPlanner">Invest Planner</a></li>
+                        <li class="nav-item"><a class="nav-link " href="http://localhost/semestralny_projekt_dsd_paloriso/dist/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link " href="crypto.php">Crypto</a></li>
+                        <li class="nav-item"><a class="nav-link " href="stocks.php">Stocks</a></li>
+                        <li class="nav-item"><a class="nav-link " href="indices.php">Indices</a></li>
+                        <li class="nav-item"><a class="nav-link " href="realEstates.php">Real Estates</a></li>
+                        <li class="nav-item"><a class="nav-link " href="metals.php">Metals</a></li>
+                        <li class="nav-item"><a class="nav-link " aria-current="page" href="bonds.php">Bonds</a></li>
+                        <li class="nav-item"><a class="nav-link " href="investPlanner.php">Invest Planner</a></li>
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <?php if($user->isLoggedIn()) { ?>
-                        <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/changePass.php"><?php echo $_SESSION['firstName']. " ". $_SESSION['lastName'];?></a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/changePass.php"><?php echo $_SESSION['firstName']. " ". $_SESSION['lastName'];?></a></li>
                         <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/logout.php">Logout</a></li>
                         <?php } else { ?>
                         <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/sign.php">Sign</a></li>
@@ -68,15 +68,15 @@ if(isset($_POST['changeButton'])){
                     <form id="signForm" class="col-md-8" action="<?php echo htmlspecialchars('changePass.php', ENT_QUOTES); ?>" method="post">
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password">
+                            <input type="password" class="form-control" id="password" placeholder="Atleast 5 letters" name="password" onkeyup="showButton()">
                             <!-- spravime REGEX ? -->
                         </div>
                         <div class="form-group">
                             <label for="passwordAgain">Password again</label>
-                            <input type="password" class="form-control" id="passwordAgain" placeholder="Repeat your passowrd" name="passwordAgain">
+                            <input type="password" class="form-control" id="passwordAgain" placeholder="Repeat your passowrd" name="passwordAgain" onkeyup="showButton()">
                             <!-- spravime REGEX ? -->
                         </div>
-                        <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center" id="changeButtonDiv">
                             <button type="submit" class="btn btn-primary" id="submitButton" name="changeButton">Change</button>
                         </div>
                     </form>
@@ -92,5 +92,26 @@ if(isset($_POST['changeButton'])){
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+            document.getElementById("submitButton").style.display = "none";
+            function showButton(){
+                var password = document.getElementById("password").value;
+                var passwordAgain = document.getElementById("passwordAgain").value;
+                
+                console.log(password + " == " + passwordAgain);
+                // if(password.length)
+                console.log(typeof(password) + " == " + typeof(passwordAgain));
+                console.log(password.length + " == " + passwordAgain.length);
+
+                if(password == passwordAgain && password.length>=5){
+                    console.log("yes")
+                    document.getElementById("submitButton").style.display = "block";
+                }
+                else{
+                    console.log("no")
+                    document.getElementById("submitButton").style.display = "none";
+                }
+            }
+        </script>
     </body>
 </html>

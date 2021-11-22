@@ -133,11 +133,6 @@ include('../connection.php');
                             <a class="btn btn-primary" href="investPlanner.php">Read more →</a>
                         </div>
                     </div>
-<<<<<<< HEAD
-=======
-                   
-                           
->>>>>>> 4ef64c8e759814da3429918ec88ec03b5e8af220
                     <div class="col-md-12 text-center">
                             <a href="#header"><button class="btn btn-primary mb-3">Back to top</button></a>
                     </div>
