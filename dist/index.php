@@ -38,7 +38,7 @@ include('../connection.php');
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <?php if($user->isLoggedIn()) { ?>
-                        <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/changePass.php"><?php echo $_SESSION['firstName']. " ". $_SESSION['lastName'];?></a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/"><?php echo $_SESSION['firstName']. " ". $_SESSION['lastName'];?></a></li>
                         <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/logout.php">Logout</a></li>
                         <?php } else { ?>
                         <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/sign.php">Sign</a></li>
@@ -133,44 +133,41 @@ include('../connection.php');
                             <a class="btn btn-primary" href="investPlanner.php">Read more →</a>
                         </div>
                     </div>
-<<<<<<< HEAD
-=======
-                   
-                           
->>>>>>> 4ef64c8e759814da3429918ec88ec03b5e8af220
                     <div class="col-md-12 text-center">
                             <a href="#header"><button class="btn btn-primary mb-3">Back to top</button></a>
                     </div>
                 </div>
-                <!-- Side widgets-->
+                
                 <div class="col-lg-4">
-                    <!-- Search widget-->
+                    <!-- Change password-->
+                    <?php if($user->isLoggedIn()) { ?>
                     <div class="card mb-4">
-                        <div class="card-header">Search BAR</div>
-                        <div class="card-body">
-                            <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                            </div>
-                        </div>
+                    <div class="card-header text-center"><?php echo $_SESSION['firstName']. " ". $_SESSION['lastName']." "; ?>- change your password here</div>
+
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 col-lg-8">
+                            <li class="nav-item"><a href="http://localhost/semestralny_projekt_dsd_paloriso/dist/changePass.php"> <button class="btn btn-primary mt-2 mb-2">Change Password</button></a></li>
+                        </ul>
                     </div>
+                    <?php } ?>
                     <!-- Categories widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Categories</div>
+                        <div class="card-header text-center">Fast links</div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
+                                        <li class="nav-item"><a class="nav-link " href="http://localhost/semestralny_projekt_dsd_paloriso/dist/">Home</a></li>
+                                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="crypto.php">Crypto</a></li>
+                                        <li class="nav-item"><a class="nav-link " href="stocks.php">Stocks</a></li>
+                                        <li class="nav-item"><a class="nav-link " href="indices.php">Indices</a></li>                     
                                     </ul>
                                 </div>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
+                                        <li class="nav-item"><a class="nav-link " href="realEstates.php">Real Estates</a></li>
+                                        <li class="nav-item"><a class="nav-link " href="metals.php">Metals</a></li>
+                                        <li class="nav-item"><a class="nav-link " href="bonds.php">Bonds</a></li>
+                                        <li class="nav-item"><a class="nav-link " href="investPlanner.php">Invest Planner</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -178,7 +175,7 @@ include('../connection.php');
                     </div>
                     <!-- Side widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Time and Date</div>
+                        <div class="card-header text-center">Time and Date</div>
                         <div class="card-body">
                             <div id="clock"></div>
                         </div>

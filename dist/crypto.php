@@ -58,7 +58,7 @@ if(isset($_POST['searchButton'])){
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <?php if($user->isLoggedIn()) { ?>
-                        <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/changePass.php"><?php echo $_SESSION['firstName']. " ". $_SESSION['lastName'];?></a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/"><?php echo $_SESSION['firstName']. " ". $_SESSION['lastName'];?></a></li>
                         <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/logout.php">Logout</a></li>
                         <?php } else { ?>
                         <li class="nav-item"><a class="nav-link" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/sign.php">Sign</a></li>
@@ -141,7 +141,7 @@ if(isset($_POST['searchButton'])){
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Search</div>
+                        <div class="card-header text-center">Search</div>
                         <div class="card-body">
                             <div class="input-group">
                                 <form id="searchForm" class="col-md-12" action="<?php echo htmlspecialchars('crypto.php', ENT_QUOTES); ?>" method="post">
@@ -158,7 +158,7 @@ if(isset($_POST['searchButton'])){
                     <!-- Categories widget-->
                     <?php if($user->isLoggedIn()) { ?>
                     <div class="card mb-4">
-                        <div class="card-header">New post</div>
+                        <div class="card-header text-center">New post</div>
                         <div class="card-body text-center">
                             <div class="row">
                                 <div class="col-sm-12">
@@ -169,7 +169,7 @@ if(isset($_POST['searchButton'])){
                     </div>
                     <?php } ?>
                     <!-- Side widget-->
-                    <div class="card mb-4">
+                    <div class="card mb-4 text-center">
                         <div class="card-header">Time and Date</div>
                         <div class="card-body">
                             <div id="clock"></div>
