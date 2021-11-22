@@ -90,7 +90,7 @@ if(isset($_POST['deleteButton'])){
                             $postNumber = $postNumber + 1;
                             if($_SESSION['postIDSession'] == $rows[$postNumber]['postID']){ ?>
                                 <div class="card mb-4" id="crypto <?php echo "crypto".$postNumber?> ">
-                                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
+                                <a href="#!"><img class="card-img-top" src="postImages/<?php echo $rows[$postNumber]["image"] == null ? "noImage.jpg" : $rows[$postNumber]["image"];?>" alt="<?php $rows[$postNumber]["image"];?>" />
                                         <?php echo $rows[$postNumber]["image"]; ?>
                                     </a>
                                     <div class="card-body">

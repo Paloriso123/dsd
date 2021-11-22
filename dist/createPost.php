@@ -29,30 +29,21 @@ foreach($listOfCategories as $singleCategory){
     }
 }
 
-// if(!$exist){
-//     header('Location: http://localhost/semestralny_projekt_dsd_paloriso/dist/');
-// }
-//spravna premenna - pridanie clanku z formularu
+if(!$exist){
+    header('Location: http://localhost/semestralny_projekt_dsd_paloriso/dist/');
+}
+// spravna premenna - pridanie clanku z formularu
 if(isset($_POST['createButton'])){
 
-    // echo $categoryID . "toto je po stlaceni createButton" . "\n";
-
-    // echo "!!! toto je foreignCategoryID = " . $_SESSION["foreignCategoryID"] . "!!! \n";
-    // echo "!!! toto je postTitle = " . $_POST['postTitle'] . "!!! \n";
-    // echo "!!!toto je description = " . $_POST['description'] . "!!!\n";
-    // echo "!!!toto je postImage = " . $_POST['postImage'] . "!!!\n";
-    // echo "!!!toto je categoryID = " . $categoryID . "!!!\n";
-    // echo "!!!toto je userID = " . $_SESSION['userID'] . "!!!\n"; 
     $postInfo = [
         'postTitle' => $_POST['postTitle'],
         'description' => $_POST['description'],
-        'postImage' => $_POST['postImage'],
+        'imageName' => $_POST['postImage'],
         'foreignCategoryID' => $_SESSION["foreignCategoryID"],
         'createdByID' => $_SESSION['userID'],  
     ];
     $post->addPost($connection, $postInfo);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,7 +110,7 @@ if(isset($_POST['createButton'])){
                             </div>
                             <div class="form-group">
                                 <label for="postImage">Image</label>
-                                <input type="file" class="form-control" id="postImage" placeholder="Image" name="postImage">
+                                <input type="file" class="form-control" id="postImage" name="postImage">
                             </div>
                             <div>
                                 <div class="d-flex justify-content-center">

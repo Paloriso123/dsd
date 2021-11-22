@@ -5,30 +5,40 @@ class Post {
         
         $postTitle = $values['postTitle'];
         $description = $values['description'];
-        $postImage = $values['postImage'];
         $createdByID = $values['createdByID'];
         $category = $values['foreignCategoryID'];
         
+        $imageFileType = strtolower(pathinfo($values['imageName'], PATHINFO_EXTENSION));
+        $values['imageName'] =='' ? $isImage = null : $isImage = 1;
+
+        $timestamp = new DateTime;
+            $isImage == 1 ? $imageName = "image_".$timestamp->getTimestamp().".".$imageFileType : $imageName = null;
+            
+            if($isImage == 1) {
+                $dest = dirname(__DIR__)."/postImages/".basename($imageName);
+                move_uploaded_file($values['imageName'], $dest);
+            }
+
         //riso desktop
         $sql = $conn['conn'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "
         . "VALUES (?, ?, ?, ?, ?)");
-        $sql->execute([$postTitle, $description, $postImage, $category, $createdByID]);
+        $sql->execute([$postTitle, $description, $imageName, $category, $createdByID]);
         
         //palo desktop
         $sql1 = $conn['conn1'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "
         . "VALUES (?, ?, ?, ?, ?)");
-        $sql1->execute([$postTitle, $description, $postImage, $category, $createdByID]);
+        $sql1->execute([$postTitle, $description, $imageName, $category, $createdByID]);
         
-        // header('Location: https://www.facebook.com/');
+        header('Location: https://www.facebook.com/');
         
         //odtialto je to dojebane - niesu rovnake databazy tak to nefunguje
-        $sql2 = $conn['conn2'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "
-        . "VALUES (?, ?, ?, ?, ?)");
-        $sql2->execute([$postTitle, $description, $postImage, $category, $createdByID]);
+        // $sql2 = $conn['conn2'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "
+        // . "VALUES (?, ?, ?, ?, ?)");
+        // $sql2->execute([$postTitle, $description, $imageName, $category, $createdByID]);
         
-        $sql3 = $conn['conn3'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "
-        . "VALUES (?, ?, ?, ?, ?)");
-        $sql3->execute([$postTitle, $description, $postImage, $category, $createdByID]);
+        // $sql3 = $conn['conn3'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "
+        // . "VALUES (?, ?, ?, ?, ?)");
+        // $sql3->execute([$postTitle, $description, $imageName, $category, $createdByID]);
 
     }
 
