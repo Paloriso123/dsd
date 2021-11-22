@@ -87,7 +87,7 @@ if(isset($_POST['searchButton'])){
 
                     <!-- Zobrazenie vsetkych prispevkov -->
                     <div id="allPosts">
-                        <?php 
+                        <?php if($searchedRows == NULL){
                         $postNumber = -1;
                         foreach($rows as $row): 
                             $postNumber = $postNumber + 1;?>
@@ -105,7 +105,7 @@ if(isset($_POST['searchButton'])){
                                     <a class="btn btn-primary" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/showPost.php?singleOpenedPostID=<?php echo $rows[$postNumber]['postID']?>"  id="showHideButton">Read more → <?php echo $rows[$postNumber]['postID']?></a>
                                 </div>
                             </div>
-                        <?php endforeach; ?>       
+                        <?php endforeach; }?>       
                      </div>
 
                      <!-- Zobrazenie search prispevkov -->
@@ -144,13 +144,17 @@ if(isset($_POST['searchButton'])){
                         <div class="card-header">Search</div>
                         <div class="card-body">
                             <div class="input-group">
-                                <form id="searchForm" class="col-md-8" action="<?php echo htmlspecialchars('crypto.php', ENT_QUOTES); ?>" method="post">
-                                    <input class="form-control" type="text" name="searchText" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" onchange="hideShow()" />
-                                    <button class="btn btn-primary" id="button-search" type="submit" name="searchButton">Go!</button>
+                                <form id="searchForm" class="col-md-12" action="<?php echo htmlspecialchars('crypto.php', ENT_QUOTES); ?>" method="post">
+                                    <input class="form-control" type="text" name="searchText" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search"/>
+                                    <div class="col-md-12 text-center mt-3">
+                                        <button class="btn btn-primary col-md-4" id="button-search" type="submit" name="searchButton">Go!</button>
+                                        <a href="http://localhost/semestralny_projekt_dsd_paloriso/dist/crypto.php"class="col-md-6"><button class="btn btn-primary" id="button-search" type="submit" name="searchButton" >Show all posts</button></a>
+                                    </div>
                                 </form>
                             </div>
                         </div>
                     </div>
+                        
                     <!-- Categories widget-->
                     <?php if($user->isLoggedIn()) { ?>
                     <div class="card mb-4">
@@ -181,13 +185,6 @@ if(isset($_POST['searchButton'])){
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script>
-
-            function hideShow(){
-                document.getElementById("allPosts").style.display = "none";
-                document.getElementById("searchedPosts").style.display = "block";
-            }
-        </script>
     </body>
 </html>
 
