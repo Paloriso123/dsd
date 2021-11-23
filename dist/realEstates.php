@@ -3,7 +3,7 @@ include('../connection.php');
 require_once('class/PostClass.php');
 $post = new Post;
 
-$_SESSION["foreignCategoryID"] = 1;
+$_SESSION["foreignCategoryID"] = 4;
 
 $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"]);
 $searchedRows = NULL;
