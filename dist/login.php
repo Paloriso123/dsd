@@ -1,6 +1,8 @@
 <?php 
 include('../connection.php');
 
+$incorrect = 1;
+
 if($user->isLoggedIn()) {
     header("location:index.php");
 }
@@ -11,7 +13,7 @@ if(isset($_POST['loginButton'])){
         'email' => $_POST['email'],
         'password' => $_POST['password']
     ];
-    $user->authenticate($connection, $userInfo);
+    $incorrect = $user->authenticate($connection, $userInfo);
 }
 
 
@@ -77,7 +79,9 @@ if(isset($_POST['loginButton'])){
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
+                            <label for="password">Password </label>
+                            <?php if($incorrect == false)
+                            { echo "is incorrect"; }?>
                             <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password">
                             <!-- spravime REGEX ? -->
                         </div>
@@ -99,5 +103,8 @@ if(isset($_POST['loginButton'])){
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+
+        </script>
     </body>
 </html>
