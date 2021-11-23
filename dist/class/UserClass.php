@@ -3,8 +3,8 @@
 class User {
 
     public function authenticate($conn, $values) {
-        
-        $msg = new Message;
+        $correct = NULL;
+        // $msg = new Message;
         $email = validateData($values['email']);
         
         if($this->getDuplicity($conn, $email)) {
@@ -22,12 +22,16 @@ class User {
                 $_SESSION['lastName'] = $user->lastName;
                 $_SESSION['email'] = $email;
                 
+                $correct = true;
                 header('location:../dist/index.php');
+                return $correct;
             } else {
-                $msg->addMessage("Zadané heslo nie je správne|TYPE_ERROR");
+                // $msg->addMessage("Zadané heslo nie je správne|TYPE_ERROR");
+                $correct = false;
             }            
         } else {
-            $msg->addMessage("Zadaný email nie je správny|TYPE_ERROR");
+            // $msg->addMessage("Zadaný email nie je správny|TYPE_ERROR");
+            $correct = false;
         }
       
     }
