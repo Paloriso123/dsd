@@ -1,15 +1,11 @@
 <?php 
 include('../connection.php');
 
-var_dump($connection);
-
 //overenie spravnej kategorie
 $category = $_GET['category'];
 
 $categoryID = 0;
 
-echo $category;
-echo gettype($category);
 
 if($category == 'crypto'){
     echo "ANO premenna category == crypto ";
@@ -32,15 +28,16 @@ foreach($listOfCategories as $singleCategory){
 if(!$exist){
     header('Location: http://localhost/semestralny_projekt_dsd_paloriso/dist/');
 }
-// spravna premenna - pridanie clanku z formularu
+//spravna premenna - pridanie clanku z formularu
 if(isset($_POST['createButton'])){
 
     $postInfo = [
         'postTitle' => $_POST['postTitle'],
         'description' => $_POST['description'],
-        'imageName' => $_POST['postImage'],
+        'imageName' => $_FILES['postImage']['name'],
+        'imageTmpName' => $_FILES['postImage']['tmp_name'],
         'foreignCategoryID' => $_SESSION["foreignCategoryID"],
-        'createdByID' => $_SESSION['userID'],  
+        'createdByID' => $_SESSION['userID'],
     ];
     $post->addPost($connection, $postInfo);
 }
@@ -94,12 +91,12 @@ if(isset($_POST['createButton'])){
             <div id="fullScreenSignDiv" class="container">
                 <!-- align-items-center z nejakeho dovodu nefunguje -->
                 <div>
-                    <h1 class="nadpis1">Create new post <?php echo "name of category " .$category. " number of category " . $categoryID?> </h1>
+                    <h1 class="nadpis1">Create new post</h1>
                 </div>
                 <div class="row align-items-center">
 
                     <div class="col-md-2"></div>
-                        <form id="signForm" class="col-md-8" action="<?php echo htmlspecialchars('createPost.php', ENT_QUOTES); ?>" method="post">
+                        <form id="signForm" class="col-md-8" action="<?php echo htmlspecialchars('createPost.php', ENT_QUOTES); ?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="postTitle">Post title</label>
                                 <input type="text" class="form-control" id="postTitle" placeholder="Title" name="postTitle">
@@ -124,7 +121,7 @@ if(isset($_POST['createButton'])){
         </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Semestrálny projekt DSD - Pavol Melko, Richard Mišek 2021</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

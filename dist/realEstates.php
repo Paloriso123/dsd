@@ -91,7 +91,6 @@ if(isset($_POST['searchButton'])){
 
                             <div class="card mb-4" id="crypto <?php echo "crypto".$postNumber?> ">
                                 <a href="#!"><img class="card-img-top" src="postImages/<?php echo $rows[$postNumber]["image"] == null ? "noImage.jpg" : $rows[$postNumber]["image"];?>" alt="<?php $rows[$postNumber]["image"];?>" style: width="856"; height="500" />
-                                    <?php echo $rows[$postNumber]["image"]; ?>
                                 </a>
                                 <div class="card-body">
                                     <div class="small text-muted"><?php echo $rows[$postNumber]["created"]; ?></div>
@@ -111,8 +110,7 @@ if(isset($_POST['searchButton'])){
                             $postNumber = $postNumber + 1;?>
 
                             <div class="card mb-4" id="crypto <?php echo "crypto".$postNumber?> ">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
-                                    <?php echo $searchedRows[$postNumber]["image"]; ?>
+                                <a href="#!"><img class="card-img-top" src="postImages/<?php echo $searchedRows[$postNumber]["image"] == null ? "noImage.jpg" : $searchedRows[$postNumber]["image"];?>" alt="<?php $searchedRows[$postNumber]["image"];?>" style: width="856"; height="500" />
                                 </a>
                                 <div class="card-body">
                                     <div class="small text-muted"><?php echo $searchedRows[$postNumber]["created"]; ?></div>
@@ -172,7 +170,7 @@ if(isset($_POST['searchButton'])){
         </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Semestrálny projekt DSD - Pavol Melko, Richard Mišek 2021</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

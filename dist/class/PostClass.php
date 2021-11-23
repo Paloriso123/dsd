@@ -10,14 +10,14 @@ class Post {
         
         $imageFileType = strtolower(pathinfo($values['imageName'], PATHINFO_EXTENSION));
         $values['imageName'] =='' ? $isImage = null : $isImage = 1;
-
-        $timestamp = new DateTime;
-            $isImage == 1 ? $imageName = "image_".$timestamp->getTimestamp().".".$imageFileType : $imageName = null;
             
-            if($isImage == 1) {
-                $dest = dirname(__DIR__)."/postImages/".basename($imageName);
-                move_uploaded_file($values['imageName'], $dest);
-            }
+        $timestamp = new DateTime;
+        $isImage == 1 ? $imageName = "image_".$timestamp->getTimestamp().".".$imageFileType : $imageName = null;
+        
+        if($isImage == 1) {
+            $dest = dirname(__DIR__)."../postImages/".basename($imageName);
+            move_uploaded_file($values['imageTmpName'], $dest);
+        }
 
         //riso desktop
         $sql = $conn['conn'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "

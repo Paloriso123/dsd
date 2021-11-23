@@ -51,67 +51,71 @@ include('../connection.php');
             </div>
         </nav>
         <!-- Page header with logo and tagline-->
-        <header class="py-2" id="header">
-            <div class="container">
-                <h1>INVEST PLANNER</h1>
-            </div>
-        </header>
-        <!-- Page content-->
-        <div class="container">
-            <div class="row">
-                <!-- Blog entries-->
-                <div class="col-lg-8">
-                    <!-- Featured blog post-->
-                    <!-- VELKY JEDEN PRISPEVOK -->
-                    <div class="card mb-4" id="">
-                        <div class="card-body">
-                            <canvas id="myChart" style="width:100%;max-width:810px"></canvas>
-                            <canvas id="myChart2" style="width:100%;max-width:810px"></canvas>
-                        </div>
+        <div class="fullscren">
+            <header class="py-2" id="header">
+                <div class="container">
+                    <div class="text-center">
+                        <h1>INVEST PLANNER</h1>
                     </div>
                 </div>
-                <!-- Side widgets-->
-                <div class="col-lg-4">
-                    <!-- Side widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Time and Date</div>
-                        <div class="card-body">
-                            <div id="clock"></div>
+            </header>
+            <!-- Page content-->
+            <div class="container">
+                <div class="row">
+                    <!-- Blog entries-->
+                    <div class="col-lg-8">
+                        <!-- Featured blog post-->
+                        <!-- VELKY JEDEN PRISPEVOK -->
+                        <div class="card mb-4" id="">
+                            <div class="card-body">
+                                <canvas id="myChart" style="width:100%;max-width:810px"></canvas>
+                                <canvas id="myChart2" style="width:100%;max-width:810px"></canvas>
+                            </div>
                         </div>
                     </div>
-                    <!-- Invest planner-->
-                    <div class="card mb-4">
-                        <div class="card-header">Categories</div>
-                        <div class="card-body">
-                            <div class="row text-center">
-                                <div class="mt-2">
-                                    <label for="startingMoney">Starting money</label>
-                                    <input type="number" name="startingMoney" placeholder="Your starting money" id="startingMoney">
-                                </div>
-                                <div class="mt-2">
-                                    <label for="interestRate">Interest rate</label>
-                                    <input type="number" name="interestRate" placeholder="Value of interest rate" id="interestRate">
-                                </div>
-                                <div class="mt-2">
-                                    <label for="years">Investing age</label>
-                                    <input type="number" name="years" placeholder="Age of investing" id="years">
-                                </div>
-                                <div class="mt-2">
-                                    <button class="btn btn-primary " onclick="calculate()">GO!</button>
+                    <!-- Side widgets-->
+                    <div class="col-lg-4">
+                        <!-- Side widget-->
+                        <div class="card mb-4">
+                            <div class="card-header">Time and Date</div>
+                            <div class="card-body">
+                                <div id="clock"></div>
+                            </div>
+                        </div>
+                        <!-- Invest planner-->
+                        <div class="card mb-4">
+                            <div class="card-header">Type values to show chart</div>
+                            <div class="card-body">
+                                <div class="row text-center">
+                                    <div class="mt-2 form-group">
+                                        <label for="startingMoney">Starting money</label>
+                                        <input type="number" class="form-control" name="startingMoney" placeholder="Your starting money" id="startingMoney">
+                                    </div>
+                                    <div class="mt-2 form-group">
+                                        <label for="interestRate">Interest rate</label>
+                                        <input type="number" class="form-control" name="interestRate" placeholder="Value of interest rate" id="interestRate">
+                                    </div>
+                                    <div class="mt-2 form-group">
+                                        <label for="years">Investing age</label>
+                                        <input type="number" class="form-control" name="years" placeholder="Age of investing" id="years">
+                                    </div>
+                                    <div class="mt-2 form-group">
+                                        <button class="btn btn-primary " onclick="calculate()">GO!</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-12">
-                    <p id="finalInfo"></p>
-                </div>
+                    <div class="col-lg-12">
+                        <p id="finalInfo"></p>
+                    </div>
 
+                </div>
             </div>
         </div>
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+        <footer class="py-5 bg-dark invest-footer">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Semestrálny projekt DSD - Pavol Melko, Richard Mišek 2021</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
