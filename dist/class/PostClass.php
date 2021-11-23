@@ -29,7 +29,7 @@ class Post {
         . "VALUES (?, ?, ?, ?, ?)");
         $sql1->execute([$postTitle, $description, $imageName, $category, $createdByID]);
         
-        header('Location: https://www.facebook.com/');
+        // header('Location: https://www.facebook.com/');
         
         //odtialto je to dojebane - niesu rovnake databazy tak to nefunguje
         // $sql2 = $conn['conn2'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "

@@ -80,11 +80,8 @@ if(isset($_POST['searchButton'])){
         <div class="container">
             <div class="row">
                 <!-- Blog entries-->
-                <!--  -->
-                <!--  -->
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
-
                     <!-- Zobrazenie vsetkych prispevkov -->
                     <div id="allPosts">
                         <?php if($searchedRows == NULL){
@@ -100,8 +97,6 @@ if(isset($_POST['searchButton'])){
                                     <div class="small text-muted"><?php echo $rows[$postNumber]["created"]; ?></div>
                                     <h2 class="card-title"><?php echo $rows[$postNumber]["title"]; ?></h2>
                                     <p class="card-text"><?php echo substr($rows[$postNumber]["content"],0,150); echo "..."; ?></p>
-                                    <!-- echo $rows[$postNumber]["image"] -->
-                                    <!-- <img src="" width="175" height="200" /> -->
                                     <a class="btn btn-primary" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/showPost.php?singleOpenedPostID=<?php echo $rows[$postNumber]['postID']?>"  id="showHideButton">Read more → <?php echo $rows[$postNumber]['postID']?></a>
                                 </div>
                             </div>
@@ -133,9 +128,7 @@ if(isset($_POST['searchButton'])){
 
                     <div class="col-md-12 text-center">
                             <a href="#header"><button class="btn btn-primary mb-3">Back to top</button></a>
-                    </div>
-
-                    
+                    </div>   
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">

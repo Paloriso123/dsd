@@ -1,8 +1,22 @@
 <?php 
 include('../connection.php');
+require_once('class/PostClass.php');
+$post = new Post;
 
 $_SESSION["foreignCategoryID"] = 3;
+
 $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"]);
+$searchedRows = NULL;
+// var_dump($rows);
+
+if(isset($_POST['searchButton'])){
+    $postInfoSearched = [
+        'searchText' => $_POST['searchText'],
+        'foreignCategoryID' => $_SESSION["foreignCategoryID"],
+    ];
+    $searchedRows = $post->getPostsFromCategoryByKeyWord($connection, $postInfoSearched['foreignCategoryID'], $postInfoSearched['searchText']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +32,9 @@ $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"])
         <link href="css/styles.css" rel="stylesheet" />
         <!-- custom CSS not built in -->
         <link href="css/customCss.css" rel="stylesheet" />
+        <!-- import kniznic pre JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
         <script src="js/clock.js"></script>
     </head>
     <body onload="realtimeClock()">
@@ -50,7 +67,6 @@ $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"])
                     </ul>
                 </div>
                 <!-- log in + logout -->
-
             </div>
         </nav>
         <!-- Page header with logo and tagline-->
@@ -67,40 +83,71 @@ $rows = $post->getPostsFromCategory($connection, $_SESSION["foreignCategoryID"])
                 <div class="col-lg-8">
                     <!-- Featured blog post-->
                     <!-- VELKY JEDEN PRISPEVOK -->
-                    <?php 
-                    $postNumber = -1;
-                    foreach($rows as $row): 
-                        $postNumber = $postNumber + 1;?>
+                    <div id="allPosts">
+                        <?php if($searchedRows == NULL){
+                        $postNumber = -1;
+                        foreach($rows as $row): 
+                            $postNumber = $postNumber + 1;?>
 
-                        <div class="card mb-4" id="crypto">
-                            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
-                                <?php echo $rows[$postNumber]["image"]; ?>
-                            </a>
-                            <div class="card-body">
-                                <div class="small text-muted"><?php echo $rows[$postNumber]["created"]; ?></div>
-                                <h2 class="card-title"><?php echo $rows[$postNumber]["title"]; ?></h2>
-                                <p class="card-text"><?php echo $rows[$postNumber]["content"]; ?></p>
-                                <a class="btn btn-primary" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/showPost.php?singleOpenedPostID=<?php echo $rows[$postNumber]['postID']?>"  id="showHideButton">Read more → <?php echo $rows[$postNumber]['postID']?></a>
+                            <div class="card mb-4" id="crypto <?php echo "crypto".$postNumber?> ">
+                                <a href="#!"><img class="card-img-top" src="postImages/<?php echo $rows[$postNumber]["image"] == null ? "noImage.jpg" : $rows[$postNumber]["image"];?>" alt="<?php $rows[$postNumber]["image"];?>" style: width="856"; height="500" />
+                                    <?php echo $rows[$postNumber]["image"]; ?>
+                                </a>
+                                <div class="card-body">
+                                    <div class="small text-muted"><?php echo $rows[$postNumber]["created"]; ?></div>
+                                    <h2 class="card-title"><?php echo $rows[$postNumber]["title"]; ?></h2>
+                                    <p class="card-text"><?php echo substr($rows[$postNumber]["content"],0,150); echo "..."; ?></p>
+                                    <a class="btn btn-primary" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/showPost.php?singleOpenedPostID=<?php echo $rows[$postNumber]['postID']?>"  id="showHideButton">Read more → <?php echo $rows[$postNumber]['postID']?></a>
+                                </div>
                             </div>
-                        </div>
+                        <?php endforeach; }?>       
+                    </div>
 
-                     <?php endforeach; ?>       
+                    <!-- Zobrazenie search prispevkov -->
+                    <div id="searchedPosts">
+                        <?php if($searchedRows != NULL){
+                        $postNumber = -1;
+                        foreach($searchedRows as $row): 
+                            $postNumber = $postNumber + 1;?>
+
+                            <div class="card mb-4" id="crypto <?php echo "crypto".$postNumber?> ">
+                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." />
+                                    <?php echo $searchedRows[$postNumber]["image"]; ?>
+                                </a>
+                                <div class="card-body">
+                                    <div class="small text-muted"><?php echo $searchedRows[$postNumber]["created"]; ?></div>
+                                    <h2 class="card-title"><?php echo $searchedRows[$postNumber]["title"]; ?></h2>
+                                    <p class="card-text"><?php echo substr($searchedRows[$postNumber]["content"],0,150); echo "..."; ?></p>
+                                    <!-- echo $searchedRows[$postNumber]["image"] -->
+                                    <!-- <img src="" width="175" height="200" /> -->
+                                    <a class="btn btn-primary" href="http://localhost/semestralny_projekt_dsd_paloriso/dist/showPost.php?singleOpenedPostID=<?php echo $searchedRows[$postNumber]['postID']?>"  id="showHideButton">Read more → <?php echo $rows[$postNumber]['postID']?></a>
+                                </div>
+                            </div>
+                        <?php endforeach;} ?>       
+                     </div>
+
                     <div class="col-md-12 text-center">
                             <a href="#header"><button class="btn btn-primary mb-3">Back to top</button></a>
-                    </div>
+                    </div>   
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
                     <!-- Search widget-->
                     <div class="card mb-4">
-                        <div class="card-header">Search</div>
+                        <div class="card-header text-center">Search</div>
                         <div class="card-body">
                             <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                                <form id="searchForm" class="col-md-12" action="<?php echo htmlspecialchars('indices.php', ENT_QUOTES); ?>" method="post">
+                                    <input class="form-control" type="text" name="searchText" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search"/>
+                                    <div class="col-md-12 text-center mt-3">
+                                        <button class="btn btn-primary col-md-4" id="button-search" type="submit" name="searchButton">Go!</button>
+                                        <a href="http://localhost/semestralny_projekt_dsd_paloriso/dist/indices.php"class="col-md-6"><button class="btn btn-primary" id="button-search" type="submit" name="searchButton" >Show all posts</button></a>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
+
                     <!-- Categories widget-->
                     <?php if($user->isLoggedIn()) { ?>
                     <div class="card mb-4">
