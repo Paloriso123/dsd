@@ -74,6 +74,7 @@ class User {
             $sql3->execute([$firstName, $lastName, $age, $email, $hashPasword]);
             
             $msg->addMessage('Úspešne ste vytvorili účet|TYPE_SUCCESS');
+            header('location:../dist/index.php');
         } else {
             $msg->addMessage('Túto emailovú adresu už niekto použil|TYPE_ERROR');
         }

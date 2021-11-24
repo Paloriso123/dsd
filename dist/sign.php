@@ -97,11 +97,11 @@ if(isset($_POST['submitButton'])){
                             <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password">
                             <!-- spravime REGEX ? -->
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="passwordAgain">Password again</label>
-                            <input type="password" class="form-control" id="passwordAgain" placeholder="Repeat your password" name="passwordAgain">
+                            <input type="password" class="form-control" id="passwordAgain" placeholder="Repeat your password" name="passwordAgain"> -->
                             <!-- spravime REGEX ? -->
-                        </div>
+                        <!-- </div> -->
                         <div>
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary " id="submitButton" name="submitButton">Register</button>
