@@ -30,15 +30,14 @@ class Post {
         $sql1->execute([$postTitle, $description, $imageName, $category, $createdByID]);
         
         // header('Location: https://www.facebook.com/');
+        //odtialto sme mali zakomentovane
+        $sql2 = $conn['conn2'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "
+        . "VALUES (?, ?, ?, ?, ?)");
+        $sql2->execute([$postTitle, $description, $imageName, $category, $createdByID]);
         
-        //odtialto je to dojebane - niesu rovnake databazy tak to nefunguje
-        // $sql2 = $conn['conn2'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "
-        // . "VALUES (?, ?, ?, ?, ?)");
-        // $sql2->execute([$postTitle, $description, $imageName, $category, $createdByID]);
-        
-        // $sql3 = $conn['conn3'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "
-        // . "VALUES (?, ?, ?, ?, ?)");
-        // $sql3->execute([$postTitle, $description, $imageName, $category, $createdByID]);
+        $sql3 = $conn['conn3'] -> prepare("INSERT INTO posts (title, content, image, foreingCategoryID, createdByID) "
+        . "VALUES (?, ?, ?, ?, ?)");
+        $sql3->execute([$postTitle, $description, $imageName, $category, $createdByID]);
 
     }
 
@@ -49,11 +48,12 @@ class Post {
         $sql1 = $conn['conn1'] -> prepare("DELETE FROM posts WHERE postID = ?");
         $sql1->execute([$postID]);
 
-        // $sql2 = $conn['conn2'] -> prepare("DELETE FROM posts WHERE postID = ?");
-        // $sql2->execute([$postID]);
+        //odtialto sme mali zakomentovane
+        $sql2 = $conn['conn2'] -> prepare("DELETE FROM posts WHERE postID = ?");
+        $sql2->execute([$postID]);
 
-        // $sql3 = $conn['conn3'] -> prepare("DELETE FROM posts WHERE postID = ?");
-        // $sql3->execute([$postID]);
+        $sql3 = $conn['conn3'] -> prepare("DELETE FROM posts WHERE postID = ?");
+        $sql3->execute([$postID]);
 
         header("location:http://localhost/semestralny_projekt_dsd_paloriso/dist/");
     }
@@ -72,11 +72,12 @@ class Post {
         $sql1 = $conn['conn1'] -> prepare("UPDATE posts SET title = ?, content= ? WHERE postID = ?");
         $sql1->execute([$postTitle, $description, $postID]);
 
-        // $sql2 = $conn['conn2'] -> prepare("UPDATE posts SET title = ?, content= ? WHERE postID = ?");
-        // $sql2->execute([$postTitle, $description, $postID]);
+        //odtialto sme mali zakomentovane
+        $sql2 = $conn['conn2'] -> prepare("UPDATE posts SET title = ?, content= ? WHERE postID = ?");
+        $sql2->execute([$postTitle, $description, $postID]);
 
-        // $sql3 = $conn['conn3'] -> prepare("UPDATE posts SET title = ?, content= ? WHERE postID = ?");
-        // $sql3->execute([$postTitle, $description, $postID]);
+        $sql3 = $conn['conn3'] -> prepare("UPDATE posts SET title = ?, content= ? WHERE postID = ?");
+        $sql3->execute([$postTitle, $description, $postID]);
 
 
         //header("location: https://www.facebook.com/");
