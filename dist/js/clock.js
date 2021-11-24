@@ -6,7 +6,12 @@ function realtimeClock() {
     var minutes = rtClock.getMinutes();
     var seconds = rtClock.getSeconds();
     var day = rtClock.getDate();
-    var month = rtClock.getMonth();
+    var month = rtClock.getMonth()+1;
+    
+    if(month > 12){
+        month = 1;
+    }
+
     var year = rtClock.getFullYear();
 
 
@@ -15,7 +20,7 @@ function realtimeClock() {
     seconds = ("0" + seconds).slice(-2);
 
     document.getElementById('clock').innerHTML =
-        hours + " : " + minutes + " : " + seconds + " " + day + "." + month + "." + year;
+    hours + " : " + minutes + " : " + seconds + "<p>___________</p>" + "<p>" + day + "." + month + "." + year + "</p>";
     var t = setTimeout(realtimeClock,500);
 
 }
